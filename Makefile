@@ -1,26 +1,29 @@
 NAME		=	cub3d
 NAMEB		=	cub3d_bonus
-CC			=	cc
+CC			=	cc -g
 FLAGS		=	-Wall -Wextra -Werror
 MLX			=	minilibx-linux/Makefile.gen
-INC			=	-I ./mandatory -I ./minilibx-linux
-INCB		=	-I ./bonus -I ./minilibx-linux
-LIB			=	-L ./minilibx-linux -lX11 -lXext -lm -lmlx -lbsd
+LFT			=	libft/libft.a
+INC			=	-I ./includes -I ./libft -I ./minilibx-linux
+INCB		=	-I ./bonus -I ./libft -I ./minilibx-linux
+LIB			=	-L ./libft -lft -L ./minilibx-linux -lX11 -lXext -lm -lmlx -lbsd
 OBJ			=	$(SRC:.c=.o)
 OBJBONUS	=	$(SRCBONUS:.c=.o)
-SRC			=	
+SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c
+SRCBONUS	=
 
-SRCBONUS	=	
-
-all:		$(MLX) $(NAME)
+all:		$(MLX) $(LFT) $(NAME)
 
 $(NAME):	$(OBJ)
 			@$(CC) $(FLAGS) -o $@ $^ $(LIB)
 
 $(MLX):
-			@make -s -C mlx
+			@make -s -C minilibx-linux
 
-bonus:		$(MLX) $(NAMEB)
+$(LFT):
+			@make -s -C libft
+
+bonus:		$(MLX) $(LFT) $(NAMEB)
 
 $(NAMEB):	$(OBJBONUS)
 			@$(CC) $(FLAGS) -o $@ $^ $(LIB)
@@ -32,10 +35,12 @@ bonus/%.o:	bonus/%.c
 			@$(CC) $(FLAGS) $(INCB) -o $@ -c $<
 
 clean:
+			@make -s $@ -C libft
 			@rm -rf $(OBJ) src/*.o
 			@rm -rf $(OBJBONUS) bonus/*.o
 
 fclean:		clean
+			@make -s $@ -C libft
 			@rm -rf $(NAME)
 			@rm -rf $(NAMEB)
 
