@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 15:04:33 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:10:35 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef struct s_player
+{
+	float	player_y;
+	float	player_x;
+}			t_player;
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+	void	*north_texture;
+	void	*south_texture;
+	void	*west_texture;
+	void	*east_texture;
+	void	*floor_texture;
+	void	*ceeling_texture;
+}			t_mlx;
+
 typedef	struct	s_game {
 	char	**map;
 	int		fd;
@@ -36,20 +54,9 @@ typedef	struct	s_game {
 	char	*w_texture;
 	char	*floor_texture;
 	char	*ceeling_texture;
+	t_player	player;
+	t_mlx		mlx;
 }			t_game;
-
-typedef struct s_player
-{
-	float	player_y;
-	float	player_x;
-}			t_player;
-
-typedef struct s_mlx
-{
-	void	*mlx;
-	void	*win;
-}			t_mlx;
-
 
 /* 			cub3d.c				 */
 int		see_matrix_size(char **str);
