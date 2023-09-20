@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 15:03:29 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:04:33 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_game
-{
 typedef	struct	s_game {
 	char	**map;
 	int		fd;
@@ -61,6 +59,7 @@ bool	check_input(char **av, t_game *game);
 void	read_map(t_game *game, char **av);
 int		size_map(t_game *game);
 bool	valid_map(t_game *game);
+
 /* 			mapCheck.c				*/
 void		read_map(t_game *game, char **av);
 int			size_map(t_game *game);
@@ -72,6 +71,7 @@ void	free_matrix(char **str);
 
 /* Testing */
 void	openwindow(void);
+
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);
 int		north_south(t_game *game, char *str);
