@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 13:13:59 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:14:42 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	see_matrix_size(char **str)
 	while (str[i])
 		i++;
 	return (i);
+
 }
 
 bool	check_input(char **av, t_game *game)
@@ -73,9 +74,7 @@ int	main(int ac, char **av)
 		free(game);
 		return (1);
 	}
-	printf("%s\n%s\n%s\n%s\n%s\n%s\n", game->n_texture, game->s_texture,
-		game->w_texture, game->e_texture, game->floor_texture,
-		game->ceeling_texture);
+	openwindow();
 	free_game(game);
 	return (0);
 }

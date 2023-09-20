@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 13:14:14 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:13:07 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	read_map(t_game *game, char **av)
 			break ;
 		game->map[i] = ft_strdup(buffer);
 		free(buffer);
-		printf("%s", game->map[i]);
+		// printf("%s", game->map[i]);
 		i++;
 	}
 	game->map[i] = 0;

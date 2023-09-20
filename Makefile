@@ -6,7 +6,7 @@ LFT			=	libft/libft.a
 INC			=	-I ./includes -I ./libft -I ./minilibx-linux
 LIB			=	-L ./libft -lft -L ./minilibx-linux -lX11 -lXext -lm -lmlx -lbsd
 OBJ			=	$(SRC:.c=.o)
-SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c
+SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c src/game.c
 
 all:		$(MLX) $(LFT) $(NAME)
 
