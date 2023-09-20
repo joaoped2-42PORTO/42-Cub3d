@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 14:01:17 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:16:47 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,8 @@ bool	check_elements_e(t_game *game);
 bool	check_elements_n(t_game *game);
 bool	check_elements_f(t_game *game);
 bool	check_elements_c(t_game *game);
+
+/* 			textureUtils.c		 */
+bool	check_textures(char *str);
 
 #endif

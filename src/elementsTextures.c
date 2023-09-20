@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:12:27 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 14:00:33 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:08:40 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	check_elements_s(t_game *game)
 		free_matrix(split);
 		return (false);
 	}
- 	free (game->s_texture);
+	free (game->s_texture);
 	split[1] += 2;
 	game->s_texture = ft_strdup(split[1]);
 	split[1] -= 2;
@@ -40,7 +40,7 @@ bool	check_elements_e(t_game *game)
 		free_matrix(split);
 		return (false);
 	}
- 	free (game->e_texture);
+	free (game->e_texture);
 	split[1] += 2;
 	game->e_texture = ft_strdup(split[1]);
 	split[1] -= 2;
@@ -76,7 +76,7 @@ bool	check_elements_f(t_game *game)
 		free_matrix(split);
 		return (false);
 	}
- 	free (game->floor_texture);
+	free (game->floor_texture);
 	game->floor_texture = ft_strdup(split[1]);
 	free_matrix(split);
 	return (true);
@@ -92,7 +92,7 @@ bool	check_elements_c(t_game *game)
 		free_matrix(split);
 		return (false);
 	}
- 	free (game->ceeling_texture);
+	free (game->ceeling_texture);
 	game->ceeling_texture = ft_strdup(split[1]);
 	free_matrix(split);
 	return (true);

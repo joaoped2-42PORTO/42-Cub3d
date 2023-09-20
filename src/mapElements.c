@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:42:36 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 14:02:13 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:14:40 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ bool	check_elements_w(t_game *game)
 		free_matrix(split);
 		return (false);
 	}
- 	free(game->w_texture);
+	free(game->w_texture);
 	split[1] += 2;
 	game->w_texture = ft_strdup(split[1]);
-	split[1] -=2;
+	split[1] -= 2;
 	free_matrix(split);
+	if (!check_textures(game->w_texture))
+		return (false);
 	return (true);
 }
 
