@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/18 15:41:21 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:30:04 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ bool	check_input(char **av, s_game *game)
 	game->fd = open(av[1], O_RDONLY);
 	split = ft_split(av[1], '.');
 	size = see_matrix_size(split) - 1;
-	if (ft_strlen("cub") != ft_strlen(split[size])
-		|| ft_strncmp("cub", split[size], 3) || game->fd == -1)
+	if (ft_strlen("cub") != ft_strlen(split[size]) || ft_strncmp("cub",
+			split[size], 3) || game->fd == -1)
 	{
 		printf("Error\n");
 		free_matrix(split);
-		close (game->fd);
+		close(game->fd);
 		return (false);
 	}
 	read_map(game, av);
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 	{
 		printf("Wrong number of arguments!\n");
-		free (game);
+		free(game);
 		return (1);
 	}
 	if (!check_input(av, game))
@@ -73,7 +73,9 @@ int	main(int ac, char **av)
 		free(game);
 		return (1);
 	}
-	printf("%s\n%s\n%s\n%s\n%s\n%s\n", game->n_texture, game->s_texture, game->w_texture, game->e_texture, game->floor_texture, game->ceeling_texture);
+	printf("%s\n%s\n%s\n%s\n%s\n%s\n", game->n_texture, game->s_texture,
+		game->w_texture, game->e_texture, game->floor_texture,
+		game->ceeling_texture);
 	free_game(game);
 	return (0);
 }

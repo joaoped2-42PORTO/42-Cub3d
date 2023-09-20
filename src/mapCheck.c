@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapCheck.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/18 15:44:25 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 12:30:11 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ int	size_map(s_game *game)
 		buffer = get_next_line(game->fd);
 		if (buffer == NULL)
 			break ;
-		free (buffer);
+		free(buffer);
 		i++;
 	}
-	free (buffer);
-	close (game->fd);
+	free(buffer);
+	close(game->fd);
 	return (i);
 }
 
@@ -99,7 +99,7 @@ void	read_map(s_game *game, char **av)
 	game->max_y = size_map(game) + 1;
 	buffer = NULL;
 	i = 0;
-	game->fd = open (av[1], O_RDONLY);
+	game->fd = open(av[1], O_RDONLY);
 	game->map = malloc(game->max_y * sizeof(char *));
 	while (1)
 	{
@@ -107,11 +107,11 @@ void	read_map(s_game *game, char **av)
 		if (buffer == NULL)
 			break ;
 		game->map[i] = ft_strdup(buffer);
-		free (buffer);
+		free(buffer);
 		printf("%s", game->map[i]);
 		i++;
 	}
 	game->map[i] = 0;
-	free (buffer);
-	close (game->fd);
+	free(buffer);
+	close(game->fd);
 }
