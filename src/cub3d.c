@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/18 15:41:21 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:00:23 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	see_matrix_size(char **str)
 	return (i);
 }
 
-bool	check_input(char **av, s_game *game)
+bool	check_input(char **av, t_game *game)
 {
 	char	**split;
 	int		size;
@@ -33,18 +33,22 @@ bool	check_input(char **av, s_game *game)
 	if (ft_strlen("cub") != ft_strlen(split[size])
 		|| ft_strncmp("cub", split[size], 3) || game->fd == -1)
 	{
-		printf("Error\n");
+		printf("Error\n Map extension is wrong!'n");
 		free_matrix(split);
 		close (game->fd);
 		return (false);
 	}
 	read_map(game, av);
-	valid_map(game);
+	if (!valid_map(game))
+	{
+		free_matrix(split);
+		return (false);
+	}
 	free_matrix(split);
 	return (true);
 }
 
-void	init(s_game *game)
+void	init(t_game *game)
 {
 	game->max_x = 0;
 	game->max_y = 0;
@@ -58,22 +62,20 @@ void	init(s_game *game)
 
 int	main(int ac, char **av)
 {
-	s_game	*game;
+	t_game	*game;
 
-	game = ft_calloc(1, sizeof(s_game));
+	game = ft_calloc(1, sizeof(t_game));
 	init(game);
 	if (ac != 2)
 	{
 		printf("Wrong number of arguments!\n");
 		free (game);
-		return (1);
+		exit (1);
 	}
 	if (!check_input(av, game))
-	{
-		free(game);
-		return (1);
-	}
+		free_game(game);
 	printf("%s\n%s\n%s\n%s\n%s\n%s\n", game->n_texture, game->s_texture, game->w_texture, game->e_texture, game->floor_texture, game->ceeling_texture);
+	printf("%d\n", game->map_start_i);
 	free_game(game);
-	return (0);
+	//return (0);
 }

@@ -9,7 +9,8 @@ INCB		=	-I ./bonus -I ./libft -I ./minilibx-linux
 LIB			=	-L ./libft -lft -L ./minilibx-linux -lX11 -lXext -lm -lmlx -lbsd
 OBJ			=	$(SRC:.c=.o)
 OBJBONUS	=	$(SRCBONUS:.c=.o)
-SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c
+SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c src/mapElements.c \
+				src/elementsTextures.c
 SRCBONUS	=
 
 all:		$(MLX) $(LFT) $(NAME)

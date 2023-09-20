@@ -6,58 +6,38 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/18 15:44:25 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:04:38 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	read_string(char *str, s_game *game)
+int	read_string(char *str, t_game *game)
 {
 	if (str[0] == '\n')
 		return (0);
-	else if (ft_strlen(str) > 3 && str[0] == 'N' && str[1] == 'O')
-	{
-		game->n_texture = ft_strdup(str);
-		return (1);
-	}
-	else if (ft_strlen(str) > 3 && str[0] == 'S' && str[1] == 'O')
-	{
-		game->s_texture = ft_strdup(str);
-		return (1);
-	}
-	else if (ft_strlen(str) > 3 && str[0] == 'W' && str[1] == 'E')
-	{
-		game->w_texture = ft_strdup(str);
-		return (1);
-	}
-	else if (ft_strlen(str) > 3 && str[0] == 'E' && str[1] == 'A')
-	{
-		game->e_texture = ft_strdup(str);
-		return (1);
-	}
-	else if (ft_strlen(str) > 2 && str[0] == 'F')
-	{
-		game->floor_texture = ft_strdup(str);
-		return (1);
-	}
-	else if (ft_strlen(str) > 2 && str[0] == 'C')
-	{
-		game->ceeling_texture = ft_strdup(str);
-		return (1);
-	}
+	else if ((ft_strlen(str) > 3 && str[0] == 'N' && str[1] == 'O')
+		|| (ft_strlen(str) > 3 && str[0] == 'S' && str[1] == 'O'))
+		return (north_south(game, str));
+	else if ((ft_strlen(str) > 3 && str[0] == 'W' && str[1] == 'E')
+		|| (ft_strlen(str) > 3 && str[0] == 'E' && str[1] == 'A'))
+		return (west_east(game, str));
+	else if ((ft_strlen(str) > 2 && str[0] == 'F')
+		|| (ft_strlen(str) > 2 && str[0] == 'C'))
+		return (ceeling_floor(game, str));
 	else
 		return (-1);
 }
 
-bool	valid_map(s_game *game)
+bool	valid_map(t_game *game)
 {
 	int	i;
 	int	qty;
 
 	qty = 0;
 	i = 0;
-	while (1)
+	while (!game->n_texture || !game->ceeling_texture || !game->floor_texture
+		|| !game->e_texture || !game->w_texture || !game->s_texture)
 	{
 		if (game->max_x < (int)ft_strlen(game->map[i]))
 			game->max_x = (int)ft_strlen(game->map[i]);
@@ -67,11 +47,15 @@ bool	valid_map(s_game *game)
 			break ;
 	}
 	if (qty == 6)
+	{
+		game->map_start_i = i;
 		return (true);
+	}
+	printf("Something is wrong with the elements of the map!\n");
 	return (false);
 }
 
-int	size_map(s_game *game)
+int	size_map(t_game *game)
 {
 	int		i;
 	char	*buffer;
@@ -91,7 +75,7 @@ int	size_map(s_game *game)
 	return (i);
 }
 
-void	read_map(s_game *game, char **av)
+void	read_map(t_game *game, char **av)
 {
 	int		i;
 	char	*buffer;
