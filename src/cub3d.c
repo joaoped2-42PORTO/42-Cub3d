@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 14:14:42 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:00:01 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,17 @@ bool	check_input(char **av, t_game *game)
 	if (ft_strlen("cub") != ft_strlen(split[size]) || ft_strncmp("cub",
 			split[size], 3) || game->fd == -1)
 	{
-		printf("Error\n");
+		printf("Error\n Map extension is wrong!'n");
 		free_matrix(split);
 		close(game->fd);
 		return (false);
 	}
 	read_map(game, av);
-	valid_map(game);
+	if (!valid_map(game))
+	{
+		free_matrix(split);
+		return (false);
+	}
 	free_matrix(split);
 	return (true);
 }
@@ -76,5 +80,5 @@ int	main(int ac, char **av)
 	}
 	openwindow();
 	free_game(game);
-	return (0);
+	//return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 14:26:39 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:03:29 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@
 
 typedef struct s_game
 {
+typedef	struct	s_game {
 	char	**map;
 	int		fd;
 	int		max_x;
 	int		max_y;
+	int		map_start_i;
 	char	*n_texture;
 	char	*s_texture;
 	char	*e_texture;
@@ -51,16 +53,39 @@ typedef struct s_mlx
 }			t_mlx;
 
 
+/* 			cub3d.c				 */
+int		see_matrix_size(char **str);
+bool	check_input(char **av, t_game *game);
+
+/* 			mapCheck.c			 */
+void	read_map(t_game *game, char **av);
+int		size_map(t_game *game);
+bool	valid_map(t_game *game);
 /* 			mapCheck.c				*/
 void		read_map(t_game *game, char **av);
 int			size_map(t_game *game);
 bool		valid_map(t_game *game);
 
-/* 			cleaner.c				*/
-void		free_game(t_game *game);
-void		free_matrix(char **str);
+/* 			cleaner.c			 */
+void	free_game(t_game *game);
+void	free_matrix(char **str);
 
 /* Testing */
 void	openwindow(void);
+/* 			mapElements.c		 */
+int		west_east(t_game *game, char *str);
+int		north_south(t_game *game, char *str);
+int		ceeling_floor(t_game *game, char *str);
+bool	check_elements_w(t_game *game);
+
+/* 			elementTextures.c	 */
+bool	check_elements_s(t_game *game);
+bool	check_elements_e(t_game *game);
+bool	check_elements_n(t_game *game);
+bool	check_elements_f(t_game *game);
+bool	check_elements_c(t_game *game);
+
+/* 			textureUtils.c		 */
+bool	check_textures(char *str);
 
 #endif
