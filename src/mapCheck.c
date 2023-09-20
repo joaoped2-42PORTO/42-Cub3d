@@ -6,13 +6,13 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 12:30:11 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:14:14 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	read_string(char *str, s_game *game)
+int	read_string(char *str, t_game *game)
 {
 	if (str[0] == '\n')
 		return (0);
@@ -50,7 +50,7 @@ int	read_string(char *str, s_game *game)
 		return (-1);
 }
 
-bool	valid_map(s_game *game)
+bool	valid_map(t_game *game)
 {
 	int	i;
 	int	qty;
@@ -71,7 +71,7 @@ bool	valid_map(s_game *game)
 	return (false);
 }
 
-int	size_map(s_game *game)
+int	size_map(t_game *game)
 {
 	int		i;
 	char	*buffer;
@@ -91,7 +91,7 @@ int	size_map(s_game *game)
 	return (i);
 }
 
-void	read_map(s_game *game, char **av)
+void	read_map(t_game *game, char **av)
 {
 	int		i;
 	char	*buffer;

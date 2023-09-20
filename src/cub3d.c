@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 12:30:04 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:13:59 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	see_matrix_size(char **str)
 	return (i);
 }
 
-bool	check_input(char **av, s_game *game)
+bool	check_input(char **av, t_game *game)
 {
 	char	**split;
 	int		size;
@@ -44,7 +44,7 @@ bool	check_input(char **av, s_game *game)
 	return (true);
 }
 
-void	init(s_game *game)
+void	init(t_game *game)
 {
 	game->max_x = 0;
 	game->max_y = 0;
@@ -58,9 +58,9 @@ void	init(s_game *game)
 
 int	main(int ac, char **av)
 {
-	s_game	*game;
+	t_game	*game;
 
-	game = ft_calloc(1, sizeof(s_game));
+	game = ft_calloc(1, sizeof(t_game));
 	init(game);
 	if (ac != 2)
 	{

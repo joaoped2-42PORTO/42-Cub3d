@@ -6,13 +6,13 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:47 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 12:29:54 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:14:02 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	free_game(s_game *game)
+void	free_game(t_game *game)
 {
 	int	i;
 
