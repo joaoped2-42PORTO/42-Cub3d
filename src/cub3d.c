@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 14:21:05 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:17:38 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ bool	check_input(char **av, t_game *game)
 		close(game->fd);
 		return (false);
 	}
+	free_matrix(split);
 	read_map(game, av);
-	if (!valid_map(game))
+	if (game->map[0] == 0 || !valid_map(game))
 	{
-		free_matrix(split);
+		printf("Error\nSomething is wrong with the elements of the map!\n");
 		return (false);
 	}
-	free_matrix(split);
 	return (true);
 }
 

@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 15:18:10 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:17:25 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,9 @@ bool	valid_map(t_game *game)
 	if (qty == 6)
 		game->map_start_i = i;
 	else
-	{
-		printf("Error\nSomething is wrong with the elements of the map!\n");
 		return (false);
-	}
 	if (check_map(game))
 		return (true);
-	printf("Error\nSomething is wrong with the elements of the map!\n");
 	return (false);
 }
 

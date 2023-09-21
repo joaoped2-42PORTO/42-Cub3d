@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 15:33:26 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:04:26 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,6 @@ typedef	struct	s_game {
 int		see_matrix_size(char **str);
 bool	check_input(char **av, t_game *game);
 
-/* 			mapCheck.c			 */
-void	read_map(t_game *game, char **av);
-int		size_map(t_game *game);
-bool	valid_map(t_game *game);
-
 /* 			mapCheck.c				*/
 void		read_map(t_game *game, char **av);
 int			size_map(t_game *game);
@@ -102,8 +97,10 @@ bool	string_is_digit(char *str);
 
 /* 			checkMap.c			 */
 bool	check_map(t_game *game);
-void	change_map(t_game *game);
 bool	check_char(char **str, t_game *game);
+
+/* 			checkMapUtils.c		 */
+void	change_map(t_game *game);
 bool	map_closed(t_game *game);
 
 #endif
