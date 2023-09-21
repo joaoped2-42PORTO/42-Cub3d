@@ -4,12 +4,11 @@ FLAGS		=	-g -Wall -Wextra -Werror
 MLX			=	minilibx-linux/Makefile.gen
 LFT			=	libft/libft.a
 INC			=	-I ./includes -I ./libft -I ./minilibx-linux
-LIB			=	-L ./libft -lft -L ./minilibx-linux -lX11 -lXext -lm -lmlx -lbsd
+LIB			=   -L ./libft -lft -L ./minilibx-linux -lmlx -lXext -lX11 -lm
 OBJ			=	$(SRC:.c=.o)
-SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c src/game.c
 OBJBONUS	=	$(SRCBONUS:.c=.o)
 SRC			=	src/cub3d.c src/cleaner.c src/mapCheck.c src/mapElements.c \
-				src/elementsTextures.c src/textureUtils.c
+				src/elementsTextures.c src/textureUtils.c src/game.c
 SRCBONUS	=
 
 all:		$(MLX) $(LFT) $(NAME)

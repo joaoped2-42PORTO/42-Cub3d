@@ -3,30 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/20 14:39:44 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:32:00 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	key_press(int keycode, t_mlx *mlx)
+int	key_press(int keycode,	t_game *game)
 {
+	(void)game;
 	if (keycode == 65307)
-		mlx_destroy_window(mlx->mlx, mlx->win);
+		exit (1);
 	return (0);
 }
 
-void	openwindow(void)
+void	openwindow(t_game *game)
 {
-	t_mlx	*mlx = NULL;
-
-	mlx->mlx = mlx_init();
-	if (mlx->mlx == 0)
-		printf("Error\n");
-	mlx->win = mlx_new_window(mlx->mlx, screenHeight, screenWidth, "cub3d");
-	mlx_hook(mlx->win, 2, 1L << 0, key_press, mlx);
-	mlx_loop(mlx->mlx);
+	game->mlx = mlx_init();
+	game->win = mlx_new_window(game->mlx, screenHeight, screenWidth, "cub3d");
+	mlx_hook(game->win, 2, 1L << 0, key_press, game->mlx);
+	mlx_loop(game->mlx);
 }

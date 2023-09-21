@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 15:10:35 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:31:34 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define screenHeight 1920
 # define screenWidth 1080
 # include "../libft/libft.h"
-# include <mlx.h>
+# include <../minilibx-linux/mlx.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
@@ -54,8 +54,10 @@ typedef	struct	s_game {
 	char	*w_texture;
 	char	*floor_texture;
 	char	*ceeling_texture;
-	t_player	player;
-	t_mlx		mlx;
+	/* t_player	player;
+	t_mlx		mlx; */
+	void	*mlx;
+	void	*win;
 }			t_game;
 
 /* 			cub3d.c				 */
@@ -77,7 +79,7 @@ void	free_game(t_game *game);
 void	free_matrix(char **str);
 
 /* Testing */
-void	openwindow(void);
+void	openwindow(t_game *game);
 
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);
@@ -93,6 +95,9 @@ bool	check_elements_f(t_game *game);
 bool	check_elements_c(t_game *game);
 
 /* 			textureUtils.c		 */
-bool	check_textures(char *str);
+bool	check_textures_ext(char *str);
+//bool	mlx_textures(t_game *game);
+bool	check_colors(char *str);
+bool	string_is_digit(char *str);
 
 #endif

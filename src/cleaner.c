@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:47 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 15:01:29 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:10:24 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_game(t_game *game)
 	int	i;
 
 	i = -1;
-	while (game->map[++i])
+	 while (game->map[++i])
 		free (game->map[i]);
 	free (game->map);
 	if (game->n_texture)
@@ -34,7 +34,6 @@ void	free_game(t_game *game)
 		free (game->ceeling_texture);
 	free (game);
 	exit (1);
->>>>>>> master
 }
 
 void	free_matrix(char **str)

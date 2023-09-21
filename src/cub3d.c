@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 15:00:01 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:16:51 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ int	main(int ac, char **av)
 	}
 	if (!check_input(av, game))
 	{
-		free(game);
+		free_game(game);
 		return (1);
 	}
-	openwindow();
+	openwindow(game);
 	free_game(game);
 	//return (0);
 }
