@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 13:31:34 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 16:44:55 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,29 @@
 
 typedef struct s_player
 {
-	float	player_y;
-	float	player_x;
+	double posX;
+	double posY;
+	double dirX;
+	double dirY;
+	double planeX;
+	double planeY;
+	double cameraX;
+	double rayDirX;
+	double rayDirY;
+	int mapX;
+	int mapY;
+	double sideDistX;
+	double sideDistY;
+	double deltaDistX;
+	double deltaDistY;
+	double perpWallDist;
+	int stepX;
+	int stepY;
+	int hit;
+	int side;
+	int lineHeight;
+	int drawStart;
+	int drawEnd;
 }			t_player;
 
 typedef struct s_mlx
@@ -54,8 +75,7 @@ typedef	struct	s_game {
 	char	*w_texture;
 	char	*floor_texture;
 	char	*ceeling_texture;
-	/* t_player	player;
-	t_mlx		mlx; */
+	t_player	player;
 	void	*mlx;
 	void	*win;
 }			t_game;
@@ -79,7 +99,7 @@ void	free_game(t_game *game);
 void	free_matrix(char **str);
 
 /* Testing */
-void	openwindow(t_game *game);
+int	openwindow(t_game *game);
 
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);
