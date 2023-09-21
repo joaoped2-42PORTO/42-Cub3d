@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 13:31:34 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:33:26 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_mlx
 typedef	struct	s_game {
 	char	**map;
 	int		fd;
-	int		max_x;
+	int		max_x;				// ATENCAO! tem que ser -1 por causa do \n e \0
 	int		max_y;
 	int		map_start_i;
 	char	*n_texture;
@@ -99,5 +99,11 @@ bool	check_textures_ext(char *str);
 //bool	mlx_textures(t_game *game);
 bool	check_colors(char *str);
 bool	string_is_digit(char *str);
+
+/* 			checkMap.c			 */
+bool	check_map(t_game *game);
+void	change_map(t_game *game);
+bool	check_char(char **str, t_game *game);
+bool	map_closed(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/20 15:02:16 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:18:10 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,21 @@ bool	valid_map(t_game *game)
 	while (!game->n_texture || !game->ceeling_texture || !game->floor_texture
 		|| !game->e_texture || !game->w_texture || !game->s_texture)
 	{
-		if (game->max_x < (int)ft_strlen(game->map[i]))
-			game->max_x = (int)ft_strlen(game->map[i]);
 		qty += read_string(game->map[i], game);
 		i++;
 		if (!game->map[i] || qty < 0)
-			break ;
+			return (false);
 	}
 	if (qty == 6)
-	{
 		game->map_start_i = i;
-		return (true);
+	else
+	{
+		printf("Error\nSomething is wrong with the elements of the map!\n");
+		return (false);
 	}
-	printf("Something is wrong with the elements of the map!\n");
+	if (check_map(game))
+		return (true);
+	printf("Error\nSomething is wrong with the elements of the map!\n");
 	return (false);
 }
 
@@ -92,7 +94,6 @@ void	read_map(t_game *game, char **av)
 			break ;
 		game->map[i] = ft_strdup(buffer);
 		free(buffer);
-		// printf("%s", game->map[i]);
 		i++;
 	}
 	game->map[i] = 0;
