@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 16:44:55 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:27:36 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define screenHeight 1920
 # define screenWidth 1080
+# define MAXDOUBLE 1e30
 # include "../libft/libft.h"
 # include <../minilibx-linux/mlx.h>
 # include <fcntl.h>
@@ -23,6 +24,17 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}			t_image;
 
 typedef struct s_player
 {
@@ -63,6 +75,13 @@ typedef struct s_mlx
 	void	*ceeling_texture;
 }			t_mlx;
 
+typedef struct s_colors
+{
+	int		red;
+	int		green;
+	int		blue;
+}			t_colors;
+
 typedef	struct	s_game {
 	char	**map;
 	int		fd;
@@ -78,6 +97,10 @@ typedef	struct	s_game {
 	t_player	player;
 	void	*mlx;
 	void	*win;
+	t_image	img;
+	t_image background;
+	t_colors	floor;
+	t_colors	ceeling;
 }			t_game;
 
 /* 			cub3d.c				 */
