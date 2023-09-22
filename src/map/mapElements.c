@@ -6,11 +6,11 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 11:42:36 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 11:40:54 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:31:59 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 bool	check_elements_w(t_game *game)
 {

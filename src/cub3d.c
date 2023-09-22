@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 18:17:38 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:26:06 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	see_matrix_size(char **str)
 	while (str[i])
 		i++;
 	return (i);
-
 }
 
 bool	check_input(char **av, t_game *game)
@@ -43,7 +42,7 @@ bool	check_input(char **av, t_game *game)
 	read_map(game, av);
 	if (game->map[0] == 0 || !valid_map(game))
 	{
-		printf("Error\nSomething is wrong with the elements of the map!\n");
+		printf("Error\nSomething is wrong with the the %s!\n", av[1]);
 		return (false);
 	}
 	return (true);
@@ -59,6 +58,7 @@ void	init(t_game *game)
 	game->e_texture = NULL;
 	game->floor_texture = NULL;
 	game->ceeling_texture = NULL;
+	game->player_count = 0;
 }
 
 int	main(int ac, char **av)

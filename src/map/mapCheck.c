@@ -6,11 +6,11 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 18:17:25 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:31:56 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 int	read_string(char *str, t_game *game)
 {
@@ -65,6 +65,8 @@ int	size_map(t_game *game)
 		buffer = get_next_line(game->fd);
 		if (buffer == NULL)
 			break ;
+		if (game->max_x < (int) ft_strlen(buffer))
+			game->max_x = (int) ft_strlen(buffer);
 		free(buffer);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 18:04:26 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:39:07 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef	struct	s_game {
 	t_mlx		mlx; */
 	void	*mlx;
 	void	*win;
+	int		player_count;
+	char	player_direction;
 }			t_game;
 
 /* 			cub3d.c				 */
@@ -98,9 +100,20 @@ bool	string_is_digit(char *str);
 /* 			checkMap.c			 */
 bool	check_map(t_game *game);
 bool	check_char(char **str, t_game *game);
+bool	inside_map(t_game *game);
+void	loop_change_map(t_game *game, int i, char **new_map);
+void	change_max_x(t_game *game, char **str);
 
 /* 			checkMapUtils.c		 */
 void	change_map(t_game *game);
 bool	map_closed(t_game *game);
+bool	map_first_line(t_game *game, int i);
+bool	map_max_y(t_game *game, int i);
+bool	loop_map(t_game *game, int size, int *i);
+
+/* 			checkMapUtils2.c	 */
+bool	loop_map_closed(t_game *game, int i);
+bool	loop_inside_map(t_game *game, int i, int j);
+void	count_player(t_game *game, int i, int j);
 
 #endif

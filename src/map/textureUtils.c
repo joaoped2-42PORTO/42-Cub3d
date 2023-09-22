@@ -6,11 +6,11 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:15:28 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 12:35:15 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:32:03 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 bool	string_is_digit(char *str)
 {
@@ -37,11 +37,6 @@ bool	check_textures_ext(char *str)
 	return (true);
 }
 
-/* bool	mlx_textures(t_game *game)
-{
-	game->mlx.north_texture =
-} */
-
 bool	check_colors(char *str)
 {
 	char	**split;
@@ -66,4 +61,3 @@ bool	check_colors(char *str)
 	free_matrix(split);
 	return (true);
 }
-
