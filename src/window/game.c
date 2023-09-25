@@ -137,21 +137,20 @@ void	put_wall(t_game *game, int i, int x)
 {
 	int j;
 
-	game->img.img = mlx_new_image(game->mlx, 0, 0);
-
+	j = 50;
+	printf("player y: %d\n", game->player.mapY);
+	if (i < game->player.mapY)
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/NO.xpm", &j, &j);
+	else if(i >= game->player.mapY)
+		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/SO.xpm", &j, &j);
 	game->img.addr = mlx_get_data_addr(game->img.img,
 												&game->img.bits_per_pixel,
 												&game->img.line_length,
 												&game->img.endian);
-	printf("game->img.bits_per_pixel: %d\n", game->img.bits_per_pixel);
-	printf("game->img.line_length: %d\n", game->img.line_length);
-	printf("game->img.endian: %d\n", game->img.endian);
 	j = game->img.line_length / 4;
-	game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/NO.xpm", &j, &j);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img, i, x);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.img, x * j , i * j);
 	//paint_on_screen_by_pixel(&game->img, game->img.line_length, game->img.endian, game->c_color);
 	mlx_destroy_image(game->mlx, game->img.img);
-
 	//experiencia para comecar a criar a imagem
 }
 
@@ -161,7 +160,6 @@ void	print_window(t_game *game)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (game->map[i])
 	{
 		j = 0;
@@ -170,19 +168,18 @@ void	print_window(t_game *game)
 			if (game->map[i][j] == '1')
 			{
 				put_wall(game, i, j);
-				break;
 			}
 			j++;
 		}
 		i++;
 	}
+
 }
 
 
 int	render_next_frame(t_game *game)
 {
-	(void)game;
-	//doalldda(game);
+	doalldda(game);
 	return (0);
 }
 

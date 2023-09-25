@@ -124,6 +124,9 @@ void	free_matrix(char **str);
 int	openwindow(t_game *game);
 unsigned int	mlx_rgb_to_int(int r, int g, int b);
 
+/* 			dda.c			 */
+void	doalldda(t_game *game);
+
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);
 int		north_south(t_game *game, char *str);
