@@ -8,8 +8,9 @@ LIB			=   -L ./libft -lft -L ./minilibx-linux -lmlx -lXext -lX11 -lm
 OBJ			=	$(SRC:.c=.o)
 OBJBONUS	=	$(SRCBONUS:.c=.o)
 SRC			=	src/cub3d.c src/cleaner.c src/map/mapCheck.c src/map/mapElements.c \
-				src/map/elementsTextures.c src/map/textureUtils.c src/game.c \
-				src/map/checkMap.c src/map/checkMapUtils.c src/map/checkMapUtils2.c
+				src/map/elementsTextures.c src/map/textureUtils.c src/window/game.c \
+				src/map/checkMap.c src/map/checkMapUtils.c src/map/checkMapUtils2.c \
+				src/window/dda.c
 SRCBONUS	=
 
 all:		$(MLX) $(LFT) $(NAME)
