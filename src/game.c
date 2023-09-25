@@ -51,13 +51,10 @@ int	key_release(int keycode)
 	return (0);
 }
 
-/* unsigned int	mlx_rgb_to_int(int o, int r, int g, int b)
+unsigned int	mlx_rgb_to_int(int r, int g, int b)
 {
-	char	*dst;
-	char	*dst;
-
-	return (o << 24 | r << 16 | g << 8 | b);
-} */
+	return (r << 16 | g << 8 | b);
+}
 void	paint_on_screen_by_pixel(t_image *img, int x, int y, int color)
 {
 	char	*dst;
@@ -73,15 +70,15 @@ void	print_background(t_game *game)
 
 	x = 0;
 	y = 0;
-	while (y < screenHeight)
+	while (y < 1080)
 	{
 		x = 0;
-		while (x < screenWidth)
+		while (x < 1920)
 		{
-			if (screenHeight / 2 > y)
-				paint_on_screen_by_pixel(&game->background, x, y, 0x00FF00);
+			if (1080 / 2 > y)
+				paint_on_screen_by_pixel(&game->background, x, y, game->f_color);
 			else
-				paint_on_screen_by_pixel(&game->background, x, y, 0x0000FF);
+				paint_on_screen_by_pixel(&game->background, x, y, game->c_color);
 			x++;
 		}
 		y++;
@@ -107,7 +104,7 @@ void	init_values(t_game *game)
 
 void	init_images(t_game *game)
 {
-	game->background.img = mlx_new_image(game->mlx, screenWidth, screenHeight);
+	game->background.img = mlx_new_image(game->mlx, 1920, 1080);
 	game->background.addr = mlx_get_data_addr(game->background.img,
 												&game->background.bits_per_pixel,
 												&game->background.line_length,
@@ -252,7 +249,7 @@ void	performdda(t_game *game)
 			game->player.mapY += game->player.stepY;
 			game->player.side = 1;
 		}
-		if (game->map[game->player.mapX][game->player.mapY] == '1')
+		if (game->map[game->player.mapY][game->player.mapX] == '1')
 			game->player.hit = 1;
 	}
 }

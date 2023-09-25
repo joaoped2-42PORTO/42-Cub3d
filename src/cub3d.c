@@ -33,9 +33,10 @@ bool	check_input(char **av, t_game *game)
 	if (ft_strlen("cub") != ft_strlen(split[size]) || ft_strncmp("cub",
 			split[size], 3) || game->fd == -1)
 	{
-		printf("Error\n Map extension is wrong!'n");
+		printf("Error\nMap extension is wrong!\n");
 		free_matrix(split);
-		close(game->fd);
+		if (game->fd != -1)
+			close(game->fd);
 		return (false);
 	}
 	free_matrix(split);
@@ -59,6 +60,7 @@ void	init(t_game *game)
 	game->floor_texture = NULL;
 	game->ceeling_texture = NULL;
 	game->player_count = 0;
+	game->map = ft_calloc(1, sizeof(char *));
 }
 
 int	main(int ac, char **av)
@@ -78,7 +80,7 @@ int	main(int ac, char **av)
 		free_game(game);
 		return (1);
 	}
-	//openwindow(game);
+	openwindow(game);
 	free_game(game);
 	//return (0);
 }

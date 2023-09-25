@@ -87,6 +87,10 @@ bool	check_elements_f(t_game *game)
 	free_matrix(split);
 	if (!check_colors(game->floor_texture))
 		return (false);
+	split = ft_split(game->floor_texture, ',');
+	game->f_color = mlx_rgb_to_int(ft_atoi(split[0]), ft_atoi(split[1]),
+			ft_atoi(split[2]));
+	free_matrix(split);
 	return (true);
 }
 
@@ -105,5 +109,9 @@ bool	check_elements_c(t_game *game)
 	free_matrix(split);
 	if (!check_colors(game->ceeling_texture))
 		return (false);
+	split = ft_split(game->ceeling_texture, ',');
+	game->c_color = mlx_rgb_to_int(ft_atoi(split[0]), ft_atoi(split[1]),
+			ft_atoi(split[2]));
+	free_matrix(split);
 	return (true);
 }

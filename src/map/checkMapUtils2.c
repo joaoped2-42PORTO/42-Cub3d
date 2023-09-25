@@ -36,6 +36,8 @@ void	count_player(t_game *game, int i, int j)
 	if (game->map[i][j] == 'N' || game->map[i][j] == 'S'
 		|| game->map[i][j] == 'E' || game->map[i][j] == 'W')
 	{
+		game->player.mapX = j;
+		game->player.mapY = i;
 		game->player_direction = game->map[i][j];
 		game->player_count++;
 	}

@@ -84,10 +84,14 @@ typedef struct s_colors
 
 typedef	struct	s_game {
 	char	**map;
+	char	player_direction;
 	int		fd;
 	int		max_x;				// ATENCAO! tem que ser -1 por causa do \n e \0
 	int		max_y;
 	int		map_start_i;
+	int		player_count;
+	unsigned int		f_color;
+	unsigned int		c_color;
 	char	*n_texture;
 	char	*s_texture;
 	char	*e_texture;
@@ -116,8 +120,9 @@ bool		valid_map(t_game *game);
 void	free_game(t_game *game);
 void	free_matrix(char **str);
 
-/* Testing */
+/* Testing in game.c*/
 int	openwindow(t_game *game);
+unsigned int	mlx_rgb_to_int(int r, int g, int b);
 
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);

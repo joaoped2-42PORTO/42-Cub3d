@@ -80,6 +80,7 @@ void	read_map(t_game *game, char **av)
 	int		i;
 	char	*buffer;
 
+	free(game->map);
 	game->max_y = size_map(game) + 1;
 	buffer = NULL;
 	i = 0;
