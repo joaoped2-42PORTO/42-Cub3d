@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/22 17:39:07 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:27:36 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define screenHeight 1920
 # define screenWidth 1080
+# define MAXDOUBLE 1e30
 # include "../libft/libft.h"
 # include <../minilibx-linux/mlx.h>
 # include <fcntl.h>
@@ -24,10 +25,42 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+}			t_image;
+
 typedef struct s_player
 {
-	float	player_y;
-	float	player_x;
+	double posX;
+	double posY;
+	double dirX;
+	double dirY;
+	double planeX;
+	double planeY;
+	double cameraX;
+	double rayDirX;
+	double rayDirY;
+	int mapX;
+	int mapY;
+	double sideDistX;
+	double sideDistY;
+	double deltaDistX;
+	double deltaDistY;
+	double perpWallDist;
+	int stepX;
+	int stepY;
+	int hit;
+	int side;
+	int lineHeight;
+	int drawStart;
+	int drawEnd;
 }			t_player;
 
 typedef struct s_mlx
@@ -42,6 +75,13 @@ typedef struct s_mlx
 	void	*ceeling_texture;
 }			t_mlx;
 
+typedef struct s_colors
+{
+	int		red;
+	int		green;
+	int		blue;
+}			t_colors;
+
 typedef	struct	s_game {
 	char	**map;
 	int		fd;
@@ -54,12 +94,13 @@ typedef	struct	s_game {
 	char	*w_texture;
 	char	*floor_texture;
 	char	*ceeling_texture;
-	/* t_player	player;
-	t_mlx		mlx; */
+	t_player	player;
 	void	*mlx;
 	void	*win;
-	int		player_count;
-	char	player_direction;
+	t_image	img;
+	t_image background;
+	t_colors	floor;
+	t_colors	ceeling;
 }			t_game;
 
 /* 			cub3d.c				 */
@@ -76,7 +117,7 @@ void	free_game(t_game *game);
 void	free_matrix(char **str);
 
 /* Testing */
-void	openwindow(t_game *game);
+int	openwindow(t_game *game);
 
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);
