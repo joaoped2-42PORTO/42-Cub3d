@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:51:31 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/21 14:58:59 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:27:11 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool	check_input(char **av, t_game *game)
 	read_map(game, av);
 	if (game->map[0] == 0 || !valid_map(game))
 	{
-		printf("Error\nSomething is wrong with the the %s!\n", av[1]);
+		printf("Error\nSomething is wrong with the %s!\n", av[1]);
 		return (false);
 	}
 	return (true);

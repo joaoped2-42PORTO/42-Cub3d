@@ -10,7 +10,7 @@ OBJBONUS	=	$(SRCBONUS:.c=.o)
 SRC			=	src/cub3d.c src/cleaner.c src/map/mapCheck.c src/map/mapElements.c \
 				src/map/elementsTextures.c src/map/textureUtils.c src/window/game.c \
 				src/map/checkMap.c src/map/checkMapUtils.c src/map/checkMapUtils2.c \
-				src/window/dda.c
+				src/window/dda.c src/window/draw.c
 SRCBONUS	=
 
 all:		$(MLX) $(LFT) $(NAME)

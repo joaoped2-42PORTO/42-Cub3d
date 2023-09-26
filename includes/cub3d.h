@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/22 14:27:36 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:30:05 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define screenHeight 1920
 # define screenWidth 1080
 # define MAXDOUBLE 1e30
+# define IMGPX 50
 # include "../libft/libft.h"
 # include <../minilibx-linux/mlx.h>
 # include <fcntl.h>
@@ -36,8 +37,26 @@ typedef struct s_image
 	int		height;
 }			t_image;
 
+typedef struct s_wall
+{
+	double wallX;
+	double wallY;
+	int lineHeight;
+	int drawStart;
+	int drawEnd;
+	int texX;
+	int texY;
+	double textposit;
+	t_image n_wall;
+	t_image s_wall;
+	t_image e_wall;
+	t_image w_wall;
+}			t_wall;
+
+
 typedef struct s_player
 {
+	int		x;
 	double posX;
 	double posY;
 	double dirX;
@@ -58,9 +77,8 @@ typedef struct s_player
 	int stepY;
 	int hit;
 	int side;
-	int lineHeight;
-	int drawStart;
-	int drawEnd;
+	float	m_speed;
+	float	r_speed;
 }			t_player;
 
 typedef struct s_mlx
@@ -105,6 +123,7 @@ typedef	struct	s_game {
 	t_image background;
 	t_colors	floor;
 	t_colors	ceeling;
+	t_wall		wall;
 }			t_game;
 
 /* 			cub3d.c				 */
@@ -126,6 +145,11 @@ unsigned int	mlx_rgb_to_int(int r, int g, int b);
 
 /* 			dda.c			 */
 void	doalldda(t_game *game);
+
+/* 			window/draw		 */
+void	draw_images_to_game(t_game *game, int x);
+void	paint_on_screen_by_pixel(t_image *img, int x, int y, int color);
+void	draw_images_to_game(t_game *game, int x);
 
 /* 			mapElements.c		 */
 int		west_east(t_game *game, char *str);

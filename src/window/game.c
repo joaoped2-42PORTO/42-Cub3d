@@ -6,7 +6,7 @@
 /*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/25 10:08:31 by neddy            ###   ########.fr       */
+/*   Updated: 2023/09/26 16:30:29 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,15 @@
 int	ft_clean_exit(t_game *game)
 {
 	if (game->win)
+	{
+		mlx_clear_window(game->mlx, game->win);
 		mlx_destroy_window(game->mlx, game->win);
+	}
+	mlx_destroy_image(game->mlx, game->wall.n_wall.img);
+	mlx_destroy_image(game->mlx, game->wall.s_wall.img);
+	mlx_destroy_image(game->mlx, game->wall.e_wall.img);
+	mlx_destroy_image(game->mlx, game->wall.w_wall.img);
+	mlx_destroy_image(game->mlx, game->background.img);
 	if (game->mlx)
 		mlx_destroy_display(game->mlx);
 	free(game->mlx);
@@ -120,6 +128,9 @@ void	init_values(t_game *game)
 	game->floor.green = -1;
 	game->floor.red = -1;
 	game->player.hit = 0;
+	game->player.side = 0;
+	game->player.m_speed = 0.08f;
+	game->player.r_speed = 0.03f;
 }
 
 void	init_images(t_game *game)
@@ -129,6 +140,26 @@ void	init_images(t_game *game)
 												&game->background.bits_per_pixel,
 												&game->background.line_length,
 												&game->background.endian);
+	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/NO.xpm", &game->wall.n_wall.width, &game->wall.n_wall.height);
+	game->wall.n_wall.addr = mlx_get_data_addr(game->wall.n_wall.img,
+												&game->wall.n_wall.bits_per_pixel,
+												&game->wall.n_wall.line_length,
+												&game->wall.n_wall.endian);
+	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/SO.xpm", &game->wall.s_wall.width, &game->wall.s_wall.height);
+	game->wall.s_wall.addr = mlx_get_data_addr(game->wall.s_wall.img,
+												&game->wall.s_wall.bits_per_pixel,
+												&game->wall.s_wall.line_length,
+												&game->wall.s_wall.endian);
+	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/EA.xpm", &game->wall.e_wall.width, &game->wall.e_wall.height);
+	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
+												&game->wall.e_wall.bits_per_pixel,
+												&game->wall.e_wall.line_length,
+												&game->wall.e_wall.endian);
+	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/WE.xpm", &game->wall.w_wall.width, &game->wall.w_wall.height);
+	game->wall.w_wall.addr = mlx_get_data_addr(game->wall.w_wall.img,
+												&game->wall.w_wall.bits_per_pixel,
+												&game->wall.w_wall.line_length,
+												&game->wall.w_wall.endian);
 }
 
 
@@ -179,7 +210,9 @@ void	print_window(t_game *game)
 
 int	render_next_frame(t_game *game)
 {
+	print_background(game);
 	doalldda(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
 	return (0);
 }
 
@@ -192,11 +225,9 @@ int	openwindow(t_game *game)
 	mlx_hook(game->win, 2, 1L << 0, key_press, game);
 	mlx_hook(game->win, 3, 1L << 1, key_release, game);
 	mlx_hook(game->win, 17, 1L << 17, ft_clean_exit, game);
-	print_background(game);							//Isto nao pode estar no loop para ja senao da erro!
-	print_window(game);								//Isto nao pode estar no loop para ja senao da erro!
+	// print_background(game);							//Isto nao pode estar no loop para ja senao da erro!
+	// print_window(game);								//Isto nao pode estar no loop para ja senao da erro!
 	mlx_loop_hook(game->mlx, render_next_frame, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
-
-// Website link: https://harm-smits.github.io/42docs/projects/cub3d
