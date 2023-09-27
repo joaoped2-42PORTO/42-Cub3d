@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleaner.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:47 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/22 16:25:52 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:34:24 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,23 @@ void	free_matrix(char **str)
 	while (str[++i])
 		free(str[i]);
 	free(str);
+}
+
+int	ft_clean_exit(t_game *game)
+{
+	if (game->win)
+	{
+		mlx_clear_window(game->mlx, game->win);
+		mlx_destroy_window(game->mlx, game->win);
+	}
+	mlx_destroy_image(game->mlx, game->wall.n_wall.img);
+	mlx_destroy_image(game->mlx, game->wall.s_wall.img);
+	mlx_destroy_image(game->mlx, game->wall.e_wall.img);
+	mlx_destroy_image(game->mlx, game->wall.w_wall.img);
+	mlx_destroy_image(game->mlx, game->background.img);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	free_game(game);
+	exit(0);
 }
