@@ -57,15 +57,15 @@ void	insert_wall_texture(t_game *game, char wall_texture, int x)
 	if (game->player.side == 0 && game->player.rayDirX > 0
 		&& wall_texture == '1')
 		paint_on_screen_by_pixel(&game->background, x, game->wall.wallY,
-				img_px(game->wall.s_wall, game->wall.texX, game->wall.texY));
+				img_px(game->wall.e_wall, game->wall.texX, game->wall.texY));
 	else if (game->player.side == 0 && game->player.rayDirX < 0
 			&& wall_texture == '1')
 		paint_on_screen_by_pixel(&game->background, x, game->wall.wallY,
-				img_px(game->wall.n_wall, game->wall.texX, game->wall.texY));
+				img_px(game->wall.e_wall, game->wall.texX, game->wall.texY));
 	else if (game->player.side == 1 && game->player.rayDirY < 0
 			&& wall_texture == '1')
 		paint_on_screen_by_pixel(&game->background, x, game->wall.wallY,
-				img_px(game->wall.w_wall, game->wall.texX, game->wall.texY));
+				img_px(game->wall.e_wall, game->wall.texX, game->wall.texY));
 	else if (game->player.side == 1 && game->player.rayDirX > 0
 			&& wall_texture == '1')
 		paint_on_screen_by_pixel(&game->background, x, game->wall.wallY,
@@ -75,11 +75,12 @@ void	insert_wall_texture(t_game *game, char wall_texture, int x)
 void	draw_images_to_game(t_game *game, int x)
 {
 	char	wall_texture;
-
+	int		i = 0;
 	init_walls(game);
 	wall_texture = game->map[game->player.mapY][game->player.mapX]; //SegFault
-	while (game->wall.wallY < game->wall.drawEnd)
+	while (game->wall.wallY > abs(game->wall.drawEnd))
 	{
+		printf("wallY%f\ndrawEnd%d\n", game->wall.wallY, game->wall.drawEnd);
 		game->wall.texY = (int)game->wall.textposit & (IMGPX - 1);
 		game->wall.textposit += 1.0 * IMGPX / game->wall.lineHeight;
 		insert_wall_texture(game, wall_texture, x);

@@ -19,7 +19,7 @@ void	calculate_ray_pos(t_game *game)
 		* game->player.cameraX;
 	game->player.rayDirY = game->player.dirX + game->player.planeY
 		* game->player.cameraX;
-	game->player.mapX = (int)game->player.posX;
-	game->player.mapY = (int)game->player.posY;
+/* 	game->player.mapX = (int)game->player.posX;             Isto esta a alterar a posicao do jogador!!
+	game->player.mapY = (int)game->player.posY; */
 	game->player.hit = 0;
 }

@@ -14,7 +14,7 @@
 
 void	init_values(t_game *game)
 {
-	game->player.posX = 22;
+	game->player.posX = game->player.;
 	game->player.posY = 12;
 	game->player.dirX = -1;
 	game->player.dirY = 0;

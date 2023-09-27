@@ -20,11 +20,11 @@ void	calculate_camera_direction(t_game *game)
 	else
 		game->player.perpWallDist = (game->player.sideDistY
 				- game->player.deltaDistY);
-	game->wall.lineHeight = (int)(screenHeight / game->player.perpWallDist);
-	game->wall.drawStart = -game->wall.lineHeight / 2 + screenHeight / 2;
+	game->wall.lineHeight = (int)(1080 / game->player.perpWallDist);
+	game->wall.drawStart = (-game->wall.lineHeight / 2) + (1080 / 2);
 	if (game->wall.drawStart < 0)
 		game->wall.drawStart = 0;
-	game->wall.drawEnd = game->wall.lineHeight / 2 + screenHeight / 2;
-	if (game->wall.drawEnd >= screenHeight)
-		game->wall.drawEnd = screenHeight - 1;
+	game->wall.drawEnd = (game->wall.lineHeight / 2) + (1080 / 2);
+	if (game->wall.drawEnd >= 1080)
+		game->wall.drawEnd = 1080 - 1;
 }

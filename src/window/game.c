@@ -17,7 +17,6 @@ void	put_wall(t_game *game, int i, int x)
 	int j;
 
 	j = 50;
-	printf("player y: %d\n", game->player.mapY);
 	if (i < game->player.mapY)
 		game->img.img = mlx_xpm_file_to_image(game->mlx, "./images/NO.xpm", &j, &j);
 	else if(i >= game->player.mapY)
@@ -58,8 +57,9 @@ void	print_window(t_game *game)
 
 int	render_next_frame(t_game *game)
 {
+	(void)game;
 	//print_background(game);
-	doalldda(game);
+
 	//mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
 	//print_window(game);
 	return (0);
@@ -74,9 +74,10 @@ int	openwindow(t_game *game)
 	mlx_hook(game->win, 2, 1L << 0, key_press, game);
 	mlx_hook(game->win, 3, 1L << 1, key_release, game);
 	mlx_hook(game->win, 17, 1L << 17, ft_clean_exit, game);
-	print_background(game);							//Isto nao pode estar no loop para ja senao da erro!
-	print_window(game);								//Isto nao pode estar no loop para ja senao da erro!
-	mlx_loop_hook(game->mlx, render_next_frame, game);
+	//print_background(game);
+	//print_window(game);
+	doalldda(game);
+	//mlx_loop_hook(game->mlx, render_next_frame, game);
 	mlx_loop(game->mlx);
 	return (0);
 }

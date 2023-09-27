@@ -37,6 +37,7 @@ void	performdda(t_game *game)
 
 void	doalldda(t_game *game)
 {
+
 	game->player.x = 0;
 	while (game->player.x < 1920)
 	{
