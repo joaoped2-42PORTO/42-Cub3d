@@ -9,10 +9,11 @@ OBJ			=	$(SRC:.c=.o)
 OBJBONUS	=	$(SRCBONUS:.c=.o)
 SRC			=	src/cub3d.c src/cleaner.c src/map/mapCheck.c src/map/mapElements.c \
 				src/map/elementsTextures.c src/map/textureUtils.c src/map/checkMap.c \
-				src/map/checkMapUtils.c src/map/checkMapUtils2.c \
+				src/map/checkMapUtils.c src/map/checkMapUtils2.c src/window/init.c\
 				src/window/game.c src/mlx_draw/draw.c src/mlx_draw/draw_background.c \
 				src/dda/calc_cam_dir.c src/dda/calc_step.c src/dda/dda_checkers.c \
-				src/dda/dda.c src/dda/ray_len.c src/dda/ray_pos.c
+				src/dda/dda.c src/dda/ray_len.c src/dda/ray_pos.c src/events/mlx_hooks.c \
+				src/mlx_draw/mlx_utils.c
 SRCBONUS	=
 
 all:		$(MLX) $(LFT) $(NAME)

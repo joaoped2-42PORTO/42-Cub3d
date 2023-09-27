@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:13:30 by neddy             #+#    #+#             */
-/*   Updated: 2023/09/27 10:23:10 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:19:45 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	performdda(t_game *game)
 void	doalldda(t_game *game)
 {
 	game->player.x = 0;
-	while (game->player.x < screenWidth)
+	while (game->player.x < 1920)
 	{
 		calculate_ray_pos(game);
-		calculate_ray_lenght_forX(game);
-		calculate_ray_lenght_forY(game);
+		calculate_ray_lenght_forX(game); //not lenght but direction
+		calculate_ray_lenght_forY(game); // same ^^
 		calculate_step_forX(game);
 		calculate_step_forY(game);
 		check_hit(game);

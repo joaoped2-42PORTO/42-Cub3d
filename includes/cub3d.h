@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/27 10:36:44 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:29:01 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ typedef struct s_game
 	char			**map;
 	char			player_direction;
 	int				fd;
-	int				max_x; // ATENCAO! tem que ser -1 por causa do \n e \0
+	int max_x; // ATENCAO! tem que ser -1 por causa do \n e \0
 	int				max_y;
 	int				map_start_i;
 	int				player_count;
@@ -179,6 +179,53 @@ bool				loop_inside_map(t_game *game, int i, int j);
 void				count_player(t_game *game, int i, int j);
 
 /* 			window/game.c			*/
-int					openwindow(t_game *game);
 int					render_next_frame(t_game *game);
+int					openwindow(t_game *game);
+
+/*			window/init.c			*/
+void				init_values(t_game *game);
+void				init_images(t_game *game);
+
+/* 			mlx_draw/draw_background.c		*/
+void				print_background(t_game *game);
+
+/* 			mlx_draw/draw.c			*/
+int					img_px(t_image img, int x, int y);
+int					check_for_x(t_game *game, int texX);
+double				init_wall_x(t_game *game);
+void				init_walls(t_game *game);
+void				insert_wall_texture(t_game *game, char wall_texture, int x);
+void				draw_images_to_game(t_game *game, int x);
+
+/* 			mlx_draw/mlx_utils.c		*/
+unsigned int		mlx_rgb_to_int(int r, int g, int b);
+void				paint_on_screen_by_pixel(t_image *img, int x, int y,
+						int color);
+
+/*			events/mlx_hooks.c 		*/
+int					key_press(int keycode, t_game *game);
+int					key_release(int keycode);
+
+/* 			dda/calc_cam_dir.c			*/
+void				calculate_camera_direction(t_game *game);
+
+/* 			dda/calc_step.c				*/
+void				calculate_step_forX(t_game *game);
+void				calculate_step_forY(t_game *game);
+
+/* 			dda/dda_checkers.c		*/
+void				check_next_sqr(t_game *game);
+void				check_hit(t_game *game);
+
+/* 			dda/dda.c				*/
+void				performdda(t_game *game);
+void				doalldda(t_game *game);
+
+/*			dda/ray_len.c			*/
+void				calculate_ray_lenght_forX(t_game *game);
+void				calculate_ray_lenght_forY(t_game *game);
+
+/*			dda/ray_pos.c			*/
+void				calculate_ray_pos(t_game *game);
+
 #endif

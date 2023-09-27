@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/27 10:35:11 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:23:56 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void	print_window(t_game *game)
 
 int	render_next_frame(t_game *game)
 {
-	print_background(game);
-	// doalldda(game);
-	// mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
+	//print_background(game);
+	doalldda(game);
+	//mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
+	//print_window(game);
 	return (0);
 }
 
@@ -73,7 +74,7 @@ int	openwindow(t_game *game)
 	mlx_hook(game->win, 2, 1L << 0, key_press, game);
 	mlx_hook(game->win, 3, 1L << 1, key_release, game);
 	mlx_hook(game->win, 17, 1L << 17, ft_clean_exit, game);
-	// print_background(game);							//Isto nao pode estar no loop para ja senao da erro!
+	print_background(game);							//Isto nao pode estar no loop para ja senao da erro!
 	print_window(game);								//Isto nao pode estar no loop para ja senao da erro!
 	mlx_loop_hook(game->mlx, render_next_frame, game);
 	mlx_loop(game->mlx);
