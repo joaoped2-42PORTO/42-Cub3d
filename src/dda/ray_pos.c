@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:20:28 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 13:43:57 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:35:35 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	calculate_ray_pos(t_game *game)
 		* game->player.cameraX;
 	game->player.rayDirY = game->player.dirY + game->player.planeY
 		* game->player.cameraX;
- 	game->player.mapX = (int)game->player.posX; //Isto esta a alterar a posicao do jogador!!
-	game->player.mapY = (int)game->player.posY; //Isto esta a alterar a posicao do jogador!!
+ 	game->player.mapX = (int)game->player.posY; //Isto esta a alterar a posicao do jogador!!
+	game->player.mapY = (int)game->player.posX; //Isto esta a alterar a posicao do jogador!!
 }

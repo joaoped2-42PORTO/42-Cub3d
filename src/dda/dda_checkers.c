@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:22:55 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 16:04:56 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:41:23 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	check_hit(t_game *game)
 	// 	game->db.tmpfl = game->player.sideDistX;
 	// 	printf("%f\n", game->player.sideDistX);
 	// }
-	if (game->player.mapX != game->db.tmpint)
-	{
-		game->db.tmpint = game->player.mapX;
-		printf("Player Map X Pos:%d\n", game->player.mapX);
-	}
-	printf("Player Delta Dist X: %f\n", game->player.deltaDistX);
-	printf("Player side: %d\n", game->player.side);
+	// if (game->player.mapX != game->db.tmpint)
+	// {
+	// 	game->db.tmpint = game->player.mapX;
+	// 	printf("Player Map X Pos:%d\n", game->player.mapX);
+	// }
+	// printf("Player Delta Dist X: %f\n", game->player.deltaDistX);
+	// printf("Player side: %d\n", game->player.side);
 	while (game->player.hit == 0)
 	{
 		if (game->player.sideDistX < game->player.sideDistY)

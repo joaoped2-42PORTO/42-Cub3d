@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:33:43 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 15:32:27 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:43:21 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,48 +20,48 @@ int	key_press(int keycode, t_game *game)
 	{
 		char test;
 
-		printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
+		// printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
 		test = game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posY += game->player.dirY * game->player.m_speed;
 		test = game->map[(int)(game->player.posX)][(int)(game->player.posY - game->player.dirY * game->player.m_speed)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posY += game->player.dirY * game->player.m_speed;
 	}
 	if (keycode == 115)
 	{
 		char test;
 
-		printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
+		// printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
 		test = game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posY -= game->player.dirY * game->player.m_speed;
 		test = game->map[(int)(game->player.posX)][(int)(game->player.posY - game->player.dirY * game->player.m_speed)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posY -= game->player.dirY * game->player.m_speed;
 	}
 	if (keycode == 97)
 	{
 		char test;
 
-		printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
+		// printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
 		test = game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posX -= game->player.dirX * game->player.m_speed;
 		test = game->map[(int)(game->player.posX)][(int)(game->player.posY - game->player.dirY * game->player.m_speed)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posX -= game->player.dirX * game->player.m_speed;
 	}
 	if (keycode == 100)
 	{
 		char test;
 
-		printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
+		// printf("%c\n", game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)]);
 		test = game->map[(int)(game->player.posX + game->player.dirX * game->player.m_speed)][(int)(game->player.posY)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posX += game->player.dirX * game->player.m_speed;
 		test = game->map[(int)(game->player.posX)][(int)(game->player.posY - game->player.dirY * game->player.m_speed)];
-		if (test == '0' || test == 'O' || test == ' ')
+		if (test == '0' || test == 'O' || test == ' ' || test == 'N')
 			game->player.posX += game->player.dirX * game->player.m_speed;
 	}
 	if (keycode == 65363)

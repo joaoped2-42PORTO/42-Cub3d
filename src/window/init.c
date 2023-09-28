@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 16:11:54 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:43:47 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,8 @@ void	init_player_starting_pos(t_game *game)
 
 void	init_values(t_game *game)
 {
-	game->player.posX = game->player.mapX;
-	game->player.posY = game->player.mapY;
-	// game->player.dirX = -1;
-	// game->player.dirY = 0;
-	// game->player.planeX = 0;
-	// game->player.planeY = 0.66;
+	game->player.posX = game->player.mapX + 0.5;
+	game->player.posY = game->player.mapY + 0.5;
 	game->db.tmpfl = 0.0;
 	game->db.tmpint = 0;
 	game->ceeling.blue = -1;
