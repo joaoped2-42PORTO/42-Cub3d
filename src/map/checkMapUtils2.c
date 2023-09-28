@@ -14,6 +14,8 @@
 
 bool	loop_map_closed(t_game *game, int i)
 {
+	if (game->map[i][0] == '\n' && game->map[i][1] == '\0')
+		return (true);
 	if (game->map[i][0] != '1' && game->map[i][0] != ' '
 			&& game->map[i][0] != '\t' && game->map[i][0] != '\n')
 		return (true);
