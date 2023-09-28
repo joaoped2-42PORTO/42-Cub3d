@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc_cam_dir.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:22:18 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/27 16:29:11 by neddy            ###   ########.fr       */
+/*   Updated: 2023/09/28 10:58:44 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	calculate_camera_direction(t_game *game)
 		game->player.perpWallDist = (game->player.sideDistY
 				- game->player.deltaDistY);
 	game->wall.lineHeight = (int)(1080 / game->player.perpWallDist);
-	game->wall.drawStart = (-game->wall.lineHeight / 2) + (1080 / 2);
+	game->wall.drawStart = -game->wall.lineHeight / 2 + 1080 / 2;
 	if (game->wall.drawStart < 0)
 		game->wall.drawStart = 0;
-	game->wall.drawEnd = (game->wall.lineHeight / 2) + (1080 / 2);
+	game->wall.drawEnd = game->wall.lineHeight / 2 + 1080 / 2;
 	if (game->wall.drawEnd >= 1080)
 		game->wall.drawEnd = 1080 - 1;
 }

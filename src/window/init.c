@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/27 16:29:53 by neddy            ###   ########.fr       */
+/*   Updated: 2023/09/28 09:47:59 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_values(t_game *game)
 {
-	game->player.posX = game->player.;
-	game->player.posY = 12;
+	game->player.posX = game->player.mapX;
+	game->player.posY = game->player.mapY;
 	game->player.dirX = -1;
 	game->player.dirY = 0;
 	game->player.planeX = 0;
@@ -27,7 +27,6 @@ void	init_values(t_game *game)
 	game->floor.green = -1;
 	game->floor.red = -1;
 	game->player.hit = 0;
-	game->player.side = 0;
 	game->player.m_speed = 0.08f;
 	game->player.r_speed = 0.03f;
 }

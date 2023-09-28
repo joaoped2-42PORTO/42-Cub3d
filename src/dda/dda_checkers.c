@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_checkers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:22:55 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/27 16:19:38 by neddy            ###   ########.fr       */
+/*   Updated: 2023/09/28 11:13:16 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	check_next_sqr(t_game *game)
 
 void	check_hit(t_game *game)
 {
-	char	curr;
+	int	curr;
 
 	curr = 0;
 	while (game->player.hit == 0)
 	{
 		check_next_sqr(game);
 		curr = game->map[game->player.mapY][game->player.mapX];
-		if (curr == '1')
+		if (curr != 48)
 			game->player.hit = 1;
 	}
 }
