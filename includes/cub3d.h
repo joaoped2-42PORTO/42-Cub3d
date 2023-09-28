@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/27 16:29:01 by neddy            ###   ########.fr       */
+/*   Updated: 2023/09/28 15:42:47 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,14 @@ typedef struct s_wall
 	t_image			e_wall;
 	t_image			w_wall;
 }					t_wall;
+
+typedef struct s_debug
+{
+	float			tmpfl;
+	int				tmpint;
+	char			tmpch;
+	double			tmpdb;
+}					t_debug;
 
 typedef struct s_player
 {
@@ -124,6 +132,7 @@ typedef struct s_game
 	t_colors		floor;
 	t_colors		ceeling;
 	t_wall			wall;
+	t_debug			db;
 }					t_game;
 
 /* 			cub3d.c					*/
@@ -214,11 +223,9 @@ void				calculate_step_forX(t_game *game);
 void				calculate_step_forY(t_game *game);
 
 /* 			dda/dda_checkers.c		*/
-void				check_next_sqr(t_game *game);
 void				check_hit(t_game *game);
 
 /* 			dda/dda.c				*/
-void				performdda(t_game *game);
 void				doalldda(t_game *game);
 
 /*			dda/ray_len.c			*/

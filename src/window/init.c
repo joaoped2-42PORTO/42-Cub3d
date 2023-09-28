@@ -6,20 +6,54 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 09:47:59 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:11:54 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
+void	init_player_starting_pos(t_game *game)
+{
+	if (game->map[game->player.mapY][game->player.mapX] == 'N')
+	{
+		game->player.dirX= 0.0f;
+		game->player.dirY = -1.0f;
+		game->player.planeX = -0.66;
+		game->player.planeY = 0;
+	}
+	else if (game->map[game->player.mapY][game->player.mapX] == 'S')
+	{
+		game->player.dirX= 0.0f;
+		game->player.dirY = 1.0f;
+		game->player.planeX = 0.66;
+		game->player.planeY = 0;
+	}
+	else if (game->map[game->player.mapY][game->player.mapX] == 'E')
+	{
+		game->player.dirX= -1.0f;
+		game->player.dirY = 0.0f;
+		game->player.planeX = 0;
+		game->player.planeY = 0.66;
+	}
+	else if (game->map[game->player.mapY][game->player.mapX] == 'W')
+	{
+		game->player.dirX= 1.0f;
+		game->player.dirY = 0.0f;
+		game->player.planeX = 0;
+		game->player.planeY = -0.66;
+	}
+}
+
 void	init_values(t_game *game)
 {
 	game->player.posX = game->player.mapX;
 	game->player.posY = game->player.mapY;
-	game->player.dirX = -1;
-	game->player.dirY = 0;
-	game->player.planeX = 0;
-	game->player.planeY = 0.66;
+	// game->player.dirX = -1;
+	// game->player.dirY = 0;
+	// game->player.planeX = 0;
+	// game->player.planeY = 0.66;
+	game->db.tmpfl = 0.0;
+	game->db.tmpint = 0;
 	game->ceeling.blue = -1;
 	game->ceeling.green = -1;
 	game->ceeling.red = -1;
@@ -29,6 +63,7 @@ void	init_values(t_game *game)
 	game->player.hit = 0;
 	game->player.m_speed = 0.08f;
 	game->player.r_speed = 0.03f;
+	init_player_starting_pos(game);
 }
 
 void	init_images(t_game *game)
