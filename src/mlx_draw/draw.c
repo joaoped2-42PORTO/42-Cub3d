@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:02:24 by neddy             #+#    #+#             */
-/*   Updated: 2023/09/28 13:41:28 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:36:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ void	insert_wall_texture(t_game *game, char wall_texture, int x)
 
 void	draw_images_to_game(t_game *game, int x)
 {
-	char	wall_texture;
+	// char	wall_texture;
 	//double	step;
 	int	y;
 
 	y = game->wall.drawStart;
 	//init_walls(game);
-	wall_texture = game->map[game->player.mapY][game->player.mapX] - 1; //SegFault
+	// wall_texture = game->map[game->player.mapY][game->player.mapX] - 1; //SegFault
 	//printf("%c\n", wall_texture);
 	// if (game->player.side == 0)
 	// 	game->wall.wallX = game->player.posY + game->player.perpWallDist * game->player.rayDirY;
