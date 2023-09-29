@@ -34,6 +34,7 @@ clean:
 			@make -s $@ -C libft
 			@make -s $@ -C minilibx-linux
 			@rm -rf $(OBJ) src/*.o
+			@make -s -C minilibx-linux
 
 fclean:		clean
 			@make -s $@ -C libft

@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 16:43:47 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:49:07 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,27 @@ void	init_player_starting_pos(t_game *game)
 	{
 		game->player.dirX= 0.0f;
 		game->player.dirY = -1.0f;
-		game->player.planeX = -0.66;
+		game->player.planeX = 0.66;
 		game->player.planeY = 0;
 	}
 	else if (game->map[game->player.mapY][game->player.mapX] == 'S')
 	{
 		game->player.dirX= 0.0f;
 		game->player.dirY = 1.0f;
-		game->player.planeX = 0.66;
+		game->player.planeX = -0.66;
 		game->player.planeY = 0;
 	}
 	else if (game->map[game->player.mapY][game->player.mapX] == 'E')
 	{
-		game->player.dirX= -1.0f;
+		game->player.dirX= 1.0f;
 		game->player.dirY = 0.0f;
 		game->player.planeX = 0;
 		game->player.planeY = 0.66;
+
 	}
 	else if (game->map[game->player.mapY][game->player.mapX] == 'W')
 	{
-		game->player.dirX= 1.0f;
+		game->player.dirX= -1.0f;
 		game->player.dirY = 0.0f;
 		game->player.planeX = 0;
 		game->player.planeY = -0.66;
@@ -46,8 +47,8 @@ void	init_player_starting_pos(t_game *game)
 
 void	init_values(t_game *game)
 {
-	game->player.posX = game->player.mapX + 0.5;
-	game->player.posY = game->player.mapY + 0.5;
+	game->player.posX = game->player.mapX + 0.6;
+	game->player.posY = game->player.mapY + 0.6;
 	game->db.tmpfl = 0.0;
 	game->db.tmpint = 0;
 	game->ceeling.blue = -1;
@@ -69,22 +70,23 @@ void	init_images(t_game *game)
 												&game->background.bits_per_pixel,
 												&game->background.line_length,
 												&game->background.endian);
-	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/NO.xpm", &game->wall.n_wall.width, &game->wall.n_wall.height);
+																	// Mal (Precisa de ser verificado antes se o path e valido e depois mandar para aqui)
+	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldNO.xpm", &game->wall.n_wall.width, &game->wall.n_wall.height);
 	game->wall.n_wall.addr = mlx_get_data_addr(game->wall.n_wall.img,
 												&game->wall.n_wall.bits_per_pixel,
 												&game->wall.n_wall.line_length,
 												&game->wall.n_wall.endian);
-	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/SO.xpm", &game->wall.s_wall.width, &game->wall.s_wall.height);
+	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldSO.xpm", &game->wall.s_wall.width, &game->wall.s_wall.height);
 	game->wall.s_wall.addr = mlx_get_data_addr(game->wall.s_wall.img,
 												&game->wall.s_wall.bits_per_pixel,
 												&game->wall.s_wall.line_length,
 												&game->wall.s_wall.endian);
-	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/EA.xpm", &game->wall.e_wall.width, &game->wall.e_wall.height);
+	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldEA.xpm", &game->wall.e_wall.width, &game->wall.e_wall.height);
 	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
 												&game->wall.e_wall.bits_per_pixel,
 												&game->wall.e_wall.line_length,
 												&game->wall.e_wall.endian);
-	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/WE.xpm", &game->wall.w_wall.width, &game->wall.w_wall.height);
+	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldWE.xpm", &game->wall.w_wall.width, &game->wall.w_wall.height);
 	game->wall.w_wall.addr = mlx_get_data_addr(game->wall.w_wall.img,
 												&game->wall.w_wall.bits_per_pixel,
 												&game->wall.w_wall.line_length,
