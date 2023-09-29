@@ -26,8 +26,16 @@ bool	string_is_digit(char *str)
 bool	check_textures_ext(char *str)
 {
 	int	i;
+	int fd;
+	char	*aux;
 
+	aux = ft_strtrim(str, "\n");
 	i = -1;
+	fd = open(aux, O_RDONLY);
+	free (aux);
+	if (fd < 0)
+		return (false);
+	close(fd);
 	while (str[++i])
 		if (str[i] == '.')
 			break ;

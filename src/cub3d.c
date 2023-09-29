@@ -33,7 +33,7 @@ bool	check_input(char **av, t_game *game)
 	if (ft_strlen("cub") != ft_strlen(split[size]) || ft_strncmp("cub",
 			split[size], 3) || game->fd == -1)
 	{
-		printf("Error\nMap extension is wrong!\n");
+		printf("Error\nSomethis is wrong with the permissions or extension!\n");
 		free_matrix(split);
 		if (game->fd != -1)
 			close(game->fd);

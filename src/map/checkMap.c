@@ -105,6 +105,28 @@ bool	check_char(char **str, t_game *game)
 	return (true);
 }
 
+void	change_string_textures(t_game *game)
+{
+	char	*aux;
+
+	aux = ft_strtrim(game->n_texture, "\n");
+	free(game->n_texture);
+	game->n_texture = ft_strdup(aux);
+	free(aux);
+	aux = ft_strtrim(game->s_texture, "\n");
+	free(game->s_texture);
+	game->s_texture = ft_strdup(aux);
+	free(aux);
+	aux = ft_strtrim(game->e_texture, "\n");
+	free(game->e_texture);
+	game->e_texture = ft_strdup(aux);
+	free(aux);
+	aux = ft_strtrim(game->w_texture, "\n");
+	free(game->w_texture);
+	game->w_texture = ft_strdup(aux);
+	free(aux);
+}
+
 bool	check_map(t_game *game)
 {
 	if (game->map[game->map_start_i] == 0)
@@ -118,5 +140,6 @@ bool	check_map(t_game *game)
 		return (false);
 	if (!inside_map(game) || game->player_count != 1)
 		return (false);
+	change_string_textures(game);
 	return (true);
 }

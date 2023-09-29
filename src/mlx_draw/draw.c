@@ -70,12 +70,12 @@ void	insert_wall_texture(t_game *game, int x, int y)
 
 void	draw_images_to_game(t_game *game, int x)
 {
-	char	wall_texture;
+	//char	wall_texture;
 	double	step;
 	int	y;
 
 	y = game->wall.drawStart;
-	wall_texture = game->map[game->player.mapY][game->player.mapX];
+	//wall_texture = game->map[game->player.mapY][game->player.mapX];
 	if (game->player.side == 0)
 		game->wall.wallX = game->player.posY + game->player.perpWallDist * game->player.rayDirY;
 	else

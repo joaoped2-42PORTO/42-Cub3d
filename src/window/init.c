@@ -71,22 +71,22 @@ void	init_images(t_game *game)
 												&game->background.line_length,
 												&game->background.endian);
 																	// Mal (Precisa de ser verificado antes se o path e valido e depois mandar para aqui)
-	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldNO.xpm", &game->wall.n_wall.width, &game->wall.n_wall.height);
+	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, game->n_texture, &game->wall.n_wall.width, &game->wall.n_wall.height);
 	game->wall.n_wall.addr = mlx_get_data_addr(game->wall.n_wall.img,
 												&game->wall.n_wall.bits_per_pixel,
 												&game->wall.n_wall.line_length,
 												&game->wall.n_wall.endian);
-	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldSO.xpm", &game->wall.s_wall.width, &game->wall.s_wall.height);
+	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, game->s_texture, &game->wall.s_wall.width, &game->wall.s_wall.height);
 	game->wall.s_wall.addr = mlx_get_data_addr(game->wall.s_wall.img,
 												&game->wall.s_wall.bits_per_pixel,
 												&game->wall.s_wall.line_length,
 												&game->wall.s_wall.endian);
-	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldEA.xpm", &game->wall.e_wall.width, &game->wall.e_wall.height);
+	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, game->e_texture, &game->wall.e_wall.width, &game->wall.e_wall.height);
 	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
 												&game->wall.e_wall.bits_per_pixel,
 												&game->wall.e_wall.line_length,
 												&game->wall.e_wall.endian);
-	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, "./images/oldWE.xpm", &game->wall.w_wall.width, &game->wall.w_wall.height);
+	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, game->w_texture, &game->wall.w_wall.width, &game->wall.w_wall.height);
 	game->wall.w_wall.addr = mlx_get_data_addr(game->wall.w_wall.img,
 												&game->wall.w_wall.bits_per_pixel,
 												&game->wall.w_wall.line_length,
