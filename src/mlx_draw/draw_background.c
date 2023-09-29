@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:31:21 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 11:22:08 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:02:35 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	print_background(t_game *game)
 		}
 		y++;
 	}
-	// mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkMapUtils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:06 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/27 16:18:11 by neddy            ###   ########.fr       */
+/*   Updated: 2023/09/29 15:14:55 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ void	count_player(t_game *game, int i, int j)
 		game->player.mapY = i;
 		game->player_direction = game->map[i][j];
 		game->player_count++;
+		/* game->map[i][j] = '0';
+		printf("%c\n", game->map[i][j]);
+		exit(0); */
 	}
 }

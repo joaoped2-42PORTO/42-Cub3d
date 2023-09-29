@@ -1,0 +1,16 @@
+NO ./images/oldNO.xpm
+SO ./images/oldSO.xpm
+WE ./images/oldWE.xpm
+
+F 2,100,0
+C 225,30,0
+EA ./images/oldEA.xpm
+
+111111111
+100010001
+1000N1001
+100001001
+100011001
+100000001
+111111111
+

@@ -1,7 +1,7 @@
 NAME		=	cub3d
 CC			=	cc
 FLAGS		=	-g -Wall -Wextra -Werror
-MLX			=	minilibx-linux/Makefile.gen
+MLX			=	@minilibx-linux
 LFT			=	libft/libft.a
 INC			=	-I ./includes -I ./libft -I ./minilibx-linux
 LIB			=   -L ./libft -lft -L ./minilibx-linux -lmlx -lXext -lX11 -lm
@@ -33,6 +33,7 @@ src/%.o:	src/%.c
 clean:
 			@make -s $@ -C libft
 			@rm -rf $(OBJ) src/*.o
+			@make -s -C minilibx-linux
 
 fclean:		clean
 			@make -s $@ -C libft

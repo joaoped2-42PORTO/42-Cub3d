@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/28 15:42:47 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:19:44 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,13 +203,14 @@ int					img_px(t_image img, int x, int y);
 int					check_for_x(t_game *game, int texX);
 double				init_wall_x(t_game *game);
 void				init_walls(t_game *game);
-void				insert_wall_texture(t_game *game, char wall_texture, int x);
+void				insert_wall_texture(t_game *game, int x, int y);
 void				draw_images_to_game(t_game *game, int x);
 
 /* 			mlx_draw/mlx_utils.c		*/
 unsigned int		mlx_rgb_to_int(int r, int g, int b);
 void				paint_on_screen_by_pixel(t_image *img, int x, int y,
 						int color);
+int					create_trgb(int t, int r, int g, int b);
 
 /*			events/mlx_hooks.c 		*/
 int					key_press(int keycode, t_game *game);
