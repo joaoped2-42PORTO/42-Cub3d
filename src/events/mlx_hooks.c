@@ -15,81 +15,38 @@
 // Mal
 int	key_press(int keycode, t_game *game)
 {
+
+	printf("keycode1: %d\n", keycode);
 	if (keycode == 65307) // ESC
 		ft_clean_exit(game);
 	if (keycode == 119) // W
-	{
-		char test;
-
-		test = game->map[(int)(game->player.posY + game->player.planeX)][(int)(game->player.posX)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posY -= game->player.planeX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.planeY)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posX += game->player.planeY * game->player.m_speed;
-	}
+		game->up_move = true;
 	if (keycode == 115) // S
-	{
-		char test;
-
-		test = game->map[(int)(game->player.posY + game->player.planeX)][(int)(game->player.posX)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posY += game->player.planeX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.planeY)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posX -= game->player.planeY * game->player.m_speed;
-	}
+		game->down_move = true;
 	if (keycode == 97) // A
-	{
-		char test;
-
-		test = game->map[(int)(game->player.posY + game->player.dirX)][(int)(game->player.posX)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posY -= game->player.dirX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.dirY)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posX += game->player.dirY * game->player.m_speed;
-	}
+		game->left_move = true;
 	if (keycode == 100) // D
-	{
-		char test;
-
-		test = game->map[(int)(game->player.posY + game->player.dirX)][(int)(game->player.posX)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posY += game->player.dirX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.dirY)];
-		if (test == '0' || test == 'O' || test == ' ' || test == 'N' || test == 'S' || test == 'E' || test == 'W')
-			game->player.posX -= game->player.dirY * game->player.m_speed;
-	}
+		game->right_move = true;
 	if (keycode == 65363) // <-
-	{
-		double	oldDirX;
-		double	oldplaneX;
-
-		oldDirX = game->player.dirX;
-		game->player.dirX = game->player.dirX * cos(game->player.r_speed) - game->player.dirY * sin(game->player.r_speed);
-		game->player.dirY = oldDirX * sin(game->player.r_speed) + game->player.dirY * cos(game->player.r_speed);
-		oldplaneX = game->player.planeX;
-		game->player.planeX = game->player.planeX * cos(game->player.r_speed) - game->player.planeY * sin(game->player.r_speed);
-		game->player.planeY = oldplaneX * sin(game->player.r_speed) + game->player.planeY * cos(game->player.r_speed);
-	}
+		game->camera_left = true;
 	if (keycode == 65361) // ->
-	{
-		double	oldDirX;
-		double	oldplaneX;
-
-		oldDirX = game->player.dirX;
-		game->player.dirX = game->player.dirX * cos(-game->player.r_speed) - game->player.dirY * sin(-game->player.r_speed);
-		game->player.dirY = oldDirX * sin(-game->player.r_speed) + game->player.dirY * cos(-game->player.r_speed);
-		oldplaneX = game->player.planeX;
-		game->player.planeX = game->player.planeX * cos(-game->player.r_speed) - game->player.planeY * sin(-game->player.r_speed);
-		game->player.planeY = oldplaneX * sin(-game->player.r_speed) + game->player.planeY * cos(-game->player.r_speed);
-	}
+		game->camera_right = true;
 	return (0);
 }
 
-int	key_release(int keycode)
+int	key_release(int keycode, t_game *game)
 {
-	(void)keycode;
+	if (keycode == 119) // W
+		game->up_move = false;
+	if (keycode == 115) // S
+		game->down_move = false;
+	if (keycode == 97) // A
+		game->left_move = false;
+	if (keycode == 100) // D
+		game->right_move = false;
+	if (keycode == 65363) // <-
+		game->camera_left = false;
+	if (keycode == 65361) // ->
+		game->camera_right = false;
 	return (0);
 }

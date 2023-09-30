@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../../includes/cub3d.h"
 
 void	put_wall(t_game *game, int i, int x)
 {
@@ -55,10 +55,12 @@ void	print_window(t_game *game)
 }
 
 
+
 int	render_next_frame(t_game *game)
 {
 	print_background(game);
 	doalldda(game);
+	move_player(game);
 	//mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
 	return (0);
 }

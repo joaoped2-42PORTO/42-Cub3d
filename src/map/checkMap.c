@@ -134,12 +134,12 @@ bool	check_map(t_game *game)
 	while (game->map[game->map_start_i][0] == '\n')
 		game->map_start_i++;
 	change_map(game);
+	change_string_textures(game);
 	if (!check_char(game->map, game))
 		return (false);
 	if (!map_closed(game))
 		return (false);
 	if (!inside_map(game) || game->player_count != 1)
 		return (false);
-	change_string_textures(game);
 	return (true);
 }

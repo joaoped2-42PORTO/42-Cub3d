@@ -18,7 +18,7 @@
 # define MAXDOUBLE 1e30
 # define IMGPX 50
 # include "../libft/libft.h"
-# include <../minilibx-linux/mlx.h>
+# include "../minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <math.h>
 # include <stdbool.h>
@@ -109,6 +109,12 @@ typedef struct s_colors
 
 typedef struct s_game
 {
+	bool			up_move;
+	bool			down_move;
+	bool			left_move;
+	bool			right_move;
+	bool			camera_left;
+	bool			camera_right;
 	char			**map;
 	char			player_direction;
 	int				fd;
@@ -214,7 +220,18 @@ int					create_trgb(int t, int r, int g, int b);
 
 /*			events/mlx_hooks.c 		*/
 int					key_press(int keycode, t_game *game);
-int					key_release(int keycode);
+int					key_release(int keycode, t_game *game);
+
+/* 			events/player_mov.c		*/
+void				move_player(t_game *game);
+void				move_up(t_game *game);
+void				move_down(t_game *game);
+void				move_left(t_game *game);
+void				move_right(t_game *game);
+
+/* 			events/camer_mov.c		 */
+void				camera_left(t_game *game);
+void				camera_right(t_game *game);
 
 /* 			dda/calc_cam_dir.c			*/
 void				calculate_camera_direction(t_game *game);
