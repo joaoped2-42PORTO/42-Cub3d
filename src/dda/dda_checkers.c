@@ -28,7 +28,11 @@ void	check_hit(t_game *game)
 			game->player.mapY += game->player.stepY;
 			game->player.side = 1;
 		}
-		if (game->map[game->player.mapY][game->player.mapX] != 48 && game->map[game->player.mapY][game->player.mapX] != 'N')
+		if (game->player.mapY < 0)
+			game->player.mapY = 0;
+		if (game->player.mapX < 0)
+			game->player.mapX = 0;
+		if (game->map[game->player.mapY][game->player.mapX] == '1')
 			game->player.hit = 1;
 	}
 }
