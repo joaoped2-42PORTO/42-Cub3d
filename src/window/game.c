@@ -59,30 +59,32 @@ void	print_window(t_game *game)
 int	render_next_frame(t_game *game)
 {
 
-	printf("Cheguei aqui:\nposX:%d\nposY:%d\nlength:%zu\nmatrix size:%d\n", (int)game->player.posX, (int)game->player.posY, ft_strlen(game->map[(int)game->player.posY]), see_matrix_size(game->map));
+	//printf("Cheguei aqui1:\nposX:%d\nposY:%d\nlength:%zu\nmatrix size:%d\noriginal posX:%d\noriginal posY:%d\n", (int)game->player.posX, (int)game->player.posY, ft_strlen(game->map[(int)game->player.posY]), see_matrix_size(game->map), game->player.mapX, game->player.mapY);
 
-	printf("X: %d\nY: %d\n", (int)game->player.sideDistX, (int)game->player.sideDistY);
-	if ((game->player.posX < 1 || (int)game->player.posX > (int)(ft_strlen(game->map[(int)game->player.posY]) - 2) || game->player.posY < 1 || game->player.posY > (see_matrix_size(game->map) - 1)) || ((int)game->player.sideDistY < 1 || (int)game->player.sideDistX < 1))
+	//printf("X: %d\nY: %d\n", (int)game->player.sideDistX, (int)game->player.sideDistY);
+/*	if ((game->player.posX < 1 || (int)game->player.posX > (int)(ft_strlen(game->map[(int)game->player.posY]) - 2) || game->player.posY < 1 || game->player.posY > (see_matrix_size(game->map) - 1)) || ((int)game->player.sideDistY < 1 || (int)game->player.sideDistX < 1))
 	{
 		//printf("Cheguei aqui:\nposX:%d\nposY:%d\nlength:%zu\nmatrix size:%d\n", (int)game->player.posX, (int)game->player.posY, ft_strlen(game->map[(int)game->player.posY]), see_matrix_size(game->map));
 		game->player.posY = game->player.prev_y;
 		game->player.posX = game->player.prev_x;
 		game->player.sideDistY = game->player.prev_sidy;
 		game->player.sideDistX = game->player.prev_sidx;
+		game->player.mapY = (int)game->player.posY;
+		game->player.mapX = (int)game->player.posX;
 		//printf("%i\n", game->map_start_i);
 		//printf("X: %f\nY: %f\n", game->player.sideDistX, game->player.sideDistY);
-		game->map_start_i++;
 		//exit (0);
-	}
+	}*/
+	//printf("Cheguei aqui2:\nposX:%d\nposY:%d\nlength:%zu\nmatrix size:%d\noriginal posX:%d\noriginal posY:%d\n", (int)game->player.posX, (int)game->player.posY, ft_strlen(game->map[(int)game->player.posY]), see_matrix_size(game->map), game->player.mapX, game->player.mapY);
 	print_background(game);
 	doalldda(game);
 	move_player(game);
-	if (game->player.posX > 1 && game->player.posY > 1)
+	if (game->player.posX > 0 && game->player.posY > 0)
 	{
 		game->player.prev_x = game->player.posX;
 		game->player.prev_y = game->player.posY;
 	}
-	if (game->player.sideDistX > 1 && game->player.sideDistY > 1)
+	if (game->player.sideDistX > 0 && game->player.sideDistY > 0)
 	{
 		game->player.prev_sidx = game->player.sideDistX;
 		game->player.prev_sidy = game->player.sideDistY;

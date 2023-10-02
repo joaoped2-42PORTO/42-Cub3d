@@ -19,6 +19,6 @@ void	calculate_ray_pos(t_game *game)
 		* game->player.cameraX;
 	game->player.rayDirY = game->player.dirY + game->player.planeY
 		* game->player.cameraX;
- 	game->player.mapX = (int)game->player.posX;
-	game->player.mapY = (int)game->player.posY;
+ 	game->player.mapX = floor(game->player.posX);
+	game->player.mapY = floor(game->player.posY);
 }
