@@ -23,7 +23,7 @@ void	calculate_step_forX(t_game *game)
 	else
 	{
 		game->player.stepX = 1;
-		game->player.sideDistX = (game->player.mapX + 1.0 - game->player.posX)
+		game->player.sideDistX = (game->player.mapX - game->player.posX)
 			* game->player.deltaDistX;
 	}
 }
@@ -39,7 +39,7 @@ void	calculate_step_forY(t_game *game)
 	else
 	{
 		game->player.stepY = 1;
-		game->player.sideDistY = (game->player.mapY + 1.0 - game->player.posY)
+		game->player.sideDistY = (game->player.mapY - game->player.posY)
 			* game->player.deltaDistY;
 	}
 }
