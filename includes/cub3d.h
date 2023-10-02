@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/29 15:19:44 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:31:47 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ typedef struct s_debug
 typedef struct s_player
 {
 	int				x;
+	double			prev_x;
+	double			prev_y;
+	double			prev_sidx;
+	double			prev_sidy;
 	double			posX;
 	double			posY;
 	double			dirX;

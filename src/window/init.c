@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/02 10:17:45 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:38:43 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ void	init_values(t_game *game)
 	game->player.hit = 0;
 	game->player.m_speed = 0.08f;
 	game->player.r_speed = 0.03f;
+	game->player.sideDistX = 2;
+	game->player.sideDistY = 2;
+	game->map_start_i = 0; //nao esquecer de remover
 	init_player_starting_pos(game);
 }
 

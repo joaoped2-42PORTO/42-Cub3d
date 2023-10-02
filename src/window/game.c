@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/29 13:03:40 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:53:18 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,35 @@ void	print_window(t_game *game)
 
 int	render_next_frame(t_game *game)
 {
+
+	printf("Cheguei aqui:\nposX:%d\nposY:%d\nlength:%zu\nmatrix size:%d\n", (int)game->player.posX, (int)game->player.posY, ft_strlen(game->map[(int)game->player.posY]), see_matrix_size(game->map));
+
+	printf("X: %d\nY: %d\n", (int)game->player.sideDistX, (int)game->player.sideDistY);
+	if ((game->player.posX < 1 || (int)game->player.posX > (int)(ft_strlen(game->map[(int)game->player.posY]) - 2) || game->player.posY < 1 || game->player.posY > (see_matrix_size(game->map) - 1)) || ((int)game->player.sideDistY < 1 || (int)game->player.sideDistX < 1))
+	{
+		//printf("Cheguei aqui:\nposX:%d\nposY:%d\nlength:%zu\nmatrix size:%d\n", (int)game->player.posX, (int)game->player.posY, ft_strlen(game->map[(int)game->player.posY]), see_matrix_size(game->map));
+		game->player.posY = game->player.prev_y;
+		game->player.posX = game->player.prev_x;
+		game->player.sideDistY = game->player.prev_sidy;
+		game->player.sideDistX = game->player.prev_sidx;
+		//printf("%i\n", game->map_start_i);
+		//printf("X: %f\nY: %f\n", game->player.sideDistX, game->player.sideDistY);
+		game->map_start_i++;
+		//exit (0);
+	}
 	print_background(game);
 	doalldda(game);
 	move_player(game);
-	//mlx_put_image_to_window(game->mlx, game->win, game->background.img, 0, 0);
+	if (game->player.posX > 1 && game->player.posY > 1)
+	{
+		game->player.prev_x = game->player.posX;
+		game->player.prev_y = game->player.posY;
+	}
+	if (game->player.sideDistX > 1 && game->player.sideDistY > 1)
+	{
+		game->player.prev_sidx = game->player.sideDistX;
+		game->player.prev_sidy = game->player.sideDistY;
+	}
 	return (0);
 }
 
