@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:33:43 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/29 15:48:30 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/02 09:19:40 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	key_press(int keycode, t_game *game)
 {
 
-	printf("keycode1: %d\n", keycode);
+	// printf("keycode1: %d\n", keycode);
 	if (keycode == 65307) // ESC
 		ft_clean_exit(game);
 	if (keycode == 119) // W

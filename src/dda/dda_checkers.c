@@ -6,7 +6,7 @@
 /*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:22:55 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/29 13:05:36 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/02 10:37:33 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@ void	check_hit(t_game *game)
 			game->player.mapY += game->player.stepY;
 			game->player.side = 1;
 		}
-		if (game->player.mapY < 0)
+		if (game->player.mapY < 0 )
 			game->player.mapY = 0;
+		if (game->player.mapY > (see_matrix_size(game->map) - 1))
+			game->player.mapY = see_matrix_size(game->map) - 1;
 		if (game->player.mapX < 0)
 			game->player.mapX = 0;
+		if (game->player.mapX > (int)ft_strlen(game->map[game->player.mapY]) - 1)
+			game->player.mapX = (int)ft_strlen(game->map[game->player.mapY] - 1);
 		if (game->map[game->player.mapY][game->player.mapX] == '1')
 			game->player.hit = 1;
 	}

@@ -4,48 +4,89 @@ void	move_right(t_game *game)
 {
 			char test;
 
-		test = game->map[(int)(game->player.posY + game->player.dirX)][(int)(game->player.posX)];
+		test = game->map[(int)(game->player.posY + game->player.dirY)][(int)(game->player.posX)];
+				printf("posY: %d\nposX: %d\n", (int)(game->player.posY + game->player.planeX), (int)(game->player.posX));
+	printf("Teste right: %c\n", test);
 		if (test != '1')
 			game->player.posY += game->player.dirX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.dirY)];
+		if (game->player.posY < 0.5)
+			game->player.posY = 0;
+		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.dirX)];
+			printf("posY: %d\nposX: %d\n", (int)(game->player.posY + game->player.planeX), (int)(game->player.posX));
+	printf("Teste 2 right: %c\n", test);
 		if (test != '1')
 			game->player.posX -= game->player.dirY * game->player.m_speed;
+				if (game->player.posX < 0.5)
+			game->player.posX = 0;
 }
 
 void	move_left(t_game *game)
 {
 		char test;
 
-		test = game->map[(int)(game->player.posY + game->player.dirX)][(int)(game->player.posX)];
+		test = game->map[(int)(game->player.posY + game->player.dirY)][(int)(game->player.posX)];
+		printf("Teste: %c\n", test);
 		if (test != '1')
 			game->player.posY -= game->player.dirX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.dirY)];
+		if (game->player.posY < 0.5)
+			game->player.posY = 0;
+		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.dirX)];
 		if (test != '1')
 			game->player.posX += game->player.dirY * game->player.m_speed;
+				if (game->player.posX < 0.5)
+			game->player.posX = 0;
 }
 
 void	move_down(t_game *game)
 {
 		char test;
 
-		test = game->map[(int)(game->player.posY + game->player.planeX)][(int)(game->player.posX)];
+
+		test = game->map[(int)(game->player.posY + game->player.planeY)][(int)(game->player.posX)];
+		printf("Teste: %c\n", test);
 		if (test != '1')
 			game->player.posY += game->player.planeX * game->player.m_speed;
-		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.planeY)];
+		if (game->player.posY < 0.5)
+			game->player.posY = 0;
+		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.planeX)];
 		if (test != '1')
 			game->player.posX -= game->player.planeY * game->player.m_speed;
+		if (game->player.posX < 0.5)
+			game->player.posX = 0;
 }
 
 void	move_up(t_game *game)
 {
-	char test;
+/* 	char test;
 
 	test = game->map[(int)(game->player.posY + game->player.planeX)][(int)(game->player.posX)];
+	printf("posY: %d\nposX: %d\n", (int)(game->player.posY + game->player.planeX), (int)(game->player.posX));
+	printf("Teste: %c\n", test);
 	if (test != '1')
 		game->player.posY -= game->player.planeX * game->player.m_speed;
 	test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.planeY)];
+	printf("posY: %d\nposX: %d\n", (int)(game->player.posY + game->player.planeX), (int)(game->player.posX));
+	printf("Teste 2: %c\n", test);
 	if (test != '1')
-		game->player.posX += game->player.planeY * game->player.m_speed;
+		game->player.posX += game->player.planeY * game->player.m_speed; */
+			char test;
+
+		test = game->map[(int)(game->player.posY + game->player.planeY)][(int)(game->player.posX)];
+		printf("posY: %d\nposX: %d\n", (int)(game->player.posY + game->player.planeX), (int)(game->player.posX));
+	printf("Teste: %c\n", test);
+		if (test != '1')
+			game->player.posY -= game->player.planeX * game->player.m_speed;
+		printf("floatY: %f\n", game->player.posY);
+		if (game->player.posY < 0.5)
+			game->player.posY = 0;
+		test = game->map[(int)(game->player.posY)][(int)(game->player.posX - game->player.planeX)];
+			printf("posY: %d\nposX: %d\n", (int)(game->player.posY + game->player.planeX), (int)(game->player.posX));
+	printf("Teste 2: %c\n", test);
+		if (test != '1')
+			game->player.posX += game->player.planeY * game->player.m_speed;
+		if (game->player.posX < 0.5)
+			game->player.posX = 0;
+		printf("floatX: %f\n", game->player.posX);
 }
 
 void	move_player(t_game *game)
