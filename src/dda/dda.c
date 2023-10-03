@@ -21,12 +21,12 @@ void	doalldda(t_game *game)
 		calculate_ray_pos(game);
 		calculate_ray_lenght_forX(game); //not lenght but direction
 		calculate_ray_lenght_forY(game); // same ^^
-		game->player.hit = 0;
 		calculate_step_forX(game);
 		calculate_step_forY(game);
 		check_hit(game);
 		calculate_camera_direction(game);
 		draw_images_to_game(game, game->player.x);
+		game->player.hit = 0;
 		game->player.x++;
 	}
 }

@@ -30,8 +30,9 @@ void	check_hit(t_game *game)
 		}
 		if (game->player.mapX < 0 || game->player.mapY < 0 || game->player.mapY >= (see_matrix_size(game->map) - 1) || game->player.mapX
 				>= ((int)ft_strlen(game->map[game->player.mapY]) - 2))
-			game->player.hit = 1;
+			game->player.hit = 2;
 		else if (game->map[game->player.mapY][game->player.mapX] == '1')
 			game->player.hit = 1;
+		printf("game hit: %d\n", game->player.hit);
 	}
 }
