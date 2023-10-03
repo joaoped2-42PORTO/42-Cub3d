@@ -112,8 +112,6 @@ bool	check_map(t_game *game)
 {
 	if (game->map[game->map_start_i] == 0)
 		return (false);
-	while (game->map[game->map_start_i][0] == '\n')
-		game->map_start_i++;
 	change_map(game);
 	change_string_textures(game);
 	if (!check_char(game->map, game))

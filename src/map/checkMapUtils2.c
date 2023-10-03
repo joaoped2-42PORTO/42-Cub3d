@@ -30,6 +30,9 @@ bool	loop_inside_map(t_game *game, int i, int j)
 	if (game->map[i - 1][j] == ' ' || game->map[i + 1][j] == ' '
 		|| game->map[i][j - 1] == ' ' || game->map[i][j + 1] == ' ')
 		return (true);
+	if (game->map[i - 1][j] == '\n' || game->map[i + 1][j] == '\n'
+		|| game->map[i][j - 1] == '\n' || game->map[i][j + 1] == '\n')
+		return (true);
 	return (false);
 }
 

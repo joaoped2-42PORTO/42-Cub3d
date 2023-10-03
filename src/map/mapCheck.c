@@ -44,6 +44,12 @@ bool	valid_map(t_game *game)
 		if (!game->map[i] || qty < 0)
 			return (false);
 	}
+	while (game->map[i][0] == '\n')
+	{
+		i++;
+		if (!game->map[i])
+			return (false);
+	}
 	if (qty == 6)
 		game->map_start_i = i;
 	else
