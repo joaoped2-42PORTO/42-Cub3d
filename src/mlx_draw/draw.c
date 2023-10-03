@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:02:24 by neddy             #+#    #+#             */
-/*   Updated: 2023/09/29 15:27:57 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:15:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ void	draw_images_to_game(t_game *game, int x)
 	game->wall.wallX -= floor((game->wall.wallX));
 
 	game->wall.texX = (int)(game->wall.wallX * (double)IMGPX);
-	if (game->player.side == 0 && game->player.rayDirX > 0)
+	if (game->player.side == 1 && game->player.rayDirY > 0)
 		game->wall.texX = IMGPX - game->wall.texX - 1;
-	if (game->player.side == 1 && game->player.rayDirY < 0)
-		game->wall.texX = IMGPX - game->wall.texX - 1;
+	if (game->player.side == 0 && game->player.rayDirX < 0)
+	 	game->wall.texX = IMGPX - game->wall.texX - 1;
 	step = 1.0 * IMGPX / game->wall.lineHeight;
 	game->wall.textposit = (game->wall.drawStart - 1080 / 2 + game->wall.lineHeight / 2) * step;
 		while (y < game->wall.drawEnd)

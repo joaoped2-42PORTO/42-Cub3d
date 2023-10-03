@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_checkers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:22:55 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/02 10:37:33 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:51:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	check_hit(t_game *game)
 			game->player.hit = 2;
 		else if (game->map[game->player.mapY][game->player.mapX] == '1')
 			game->player.hit = 1;
-		printf("game hit: %d\n", game->player.hit);
+		// printf("game hit: %d\n", game->player.hit);
 	}
 }
