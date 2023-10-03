@@ -16,7 +16,6 @@
 int	key_press(int keycode, t_game *game)
 {
 
-	// printf("keycode1: %d\n", keycode);
 	if (keycode == 65307) // ESC
 		ft_clean_exit(game);
 	if (keycode == 119) // W

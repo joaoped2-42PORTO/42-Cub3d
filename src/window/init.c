@@ -47,7 +47,6 @@ void	init_player_starting_pos(t_game *game)
 
 void	init_values(t_game *game)
 {
-	printf("X: %d\nY: %d\n", game->player.mapX, game->player.mapY);
 	game->player.posX = game->player.mapX + 0.5;
 	game->player.posY = game->player.mapY + 0.5;
 	game->db.tmpfl = 0.0;
@@ -63,7 +62,6 @@ void	init_values(t_game *game)
 	game->player.r_speed = 0.03f;
 	game->player.sideDistX = 2;
 	game->player.sideDistY = 2;
-	game->map_start_i = 0; //nao esquecer de remover
 	init_player_starting_pos(game);
 }
 

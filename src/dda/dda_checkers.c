@@ -28,31 +28,10 @@ void	check_hit(t_game *game)
 			game->player.mapY += game->player.stepY;
 			game->player.side = 1;
 		}
-		if (game->player.mapY < 1 )
-		{
+		if (game->player.mapX < 0 || game->player.mapY < 0 || game->player.mapY >= (see_matrix_size(game->map) - 1) || game->player.mapX
+				>= ((int)ft_strlen(game->map[game->player.mapY]) - 2))
 			game->player.hit = 1;
-			game->player.mapY = 0;
-			return ;
-		}
-		if (game->player.mapY > (see_matrix_size(game->map) - 1))
-		{
-			game->player.hit = 1;
-			game->player.mapY = see_matrix_size(game->map) - 1;
-			return ;
-		}
-		if (game->player.mapX < 0)
-		{
-			game->player.hit = 1;
-			game->player.mapX = 0;
-			return ;
-		}
-		if (game->player.mapX > (int)ft_strlen(game->map[game->player.mapY]) - 2)
-		{
-			game->player.hit = 1;
-			game->player.mapX = (int)ft_strlen(game->map[game->player.mapY] - 2);
-			return ;
-		}
-		if (game->map[game->player.mapY][game->player.mapX] == '1')
+		else if (game->map[game->player.mapY][game->player.mapX] == '1')
 			game->player.hit = 1;
 	}
 }
