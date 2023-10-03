@@ -42,8 +42,24 @@ void	count_player(t_game *game, int i, int j)
 		game->player.mapY = i;
 		game->player_direction = game->map[i][j];
 		game->player_count++;
-		/* game->map[i][j] = '0';
-		printf("%c\n", game->map[i][j]);
-		exit(0); */
+	}
+}
+
+void	change_max_x(t_game *game, char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] == '\t')
+				game->max_x += 3;
+			j++;
+		}
+		i++;
 	}
 }

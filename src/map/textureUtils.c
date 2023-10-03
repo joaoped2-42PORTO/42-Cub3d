@@ -25,8 +25,8 @@ bool	string_is_digit(char *str)
 
 bool	check_textures_ext(char *str)
 {
-	int	i;
-	int fd;
+	int		i;
+	int		fd;
 	char	*aux;
 
 	aux = ft_strtrim(str, "\n");

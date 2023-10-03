@@ -12,25 +12,6 @@
 
 #include "../../includes/cub3d.h"
 
-void	change_max_x(t_game *game, char **str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (str[i][j] == '\t')
-				game->max_x += 3;
-			j++;
-		}
-		i++;
-	}
-}
-
 void	loop_change_map(t_game *game, int i, char **new_map)
 {
 	int	j;

@@ -183,7 +183,7 @@ bool				check_map(t_game *game);
 bool				check_char(char **str, t_game *game);
 bool				inside_map(t_game *game);
 void				loop_change_map(t_game *game, int i, char **new_map);
-void				change_max_x(t_game *game, char **str);
+void				change_string_textures(t_game *game)
 
 /* 			checkMapUtils.c			*/
 void				change_map(t_game *game);
@@ -196,6 +196,7 @@ bool				loop_map(t_game *game, int size, int *i);
 bool				loop_map_closed(t_game *game, int i);
 bool				loop_inside_map(t_game *game, int i, int j);
 void				count_player(t_game *game, int i, int j);
+void				change_max_x(t_game *game, char **str);
 
 /* 			window/game.c			*/
 int					render_next_frame(t_game *game);

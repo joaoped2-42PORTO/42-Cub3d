@@ -82,5 +82,5 @@ int	main(int ac, char **av)
 	}
 	openwindow(game);
 	free_game(game);
-	//return (0);
+	return (0);
 }

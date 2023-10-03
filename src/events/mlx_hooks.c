@@ -12,40 +12,38 @@
 
 #include "../../includes/cub3d.h"
 
-// Mal
 int	key_press(int keycode, t_game *game)
 {
-
-	if (keycode == 65307) // ESC
+	if (keycode == 65307)
 		ft_clean_exit(game);
-	if (keycode == 119) // W
+	if (keycode == 119)
 		game->up_move = true;
-	if (keycode == 115) // S
+	if (keycode == 115)
 		game->down_move = true;
-	if (keycode == 97) // A
+	if (keycode == 97)
 		game->left_move = true;
-	if (keycode == 100) // D
+	if (keycode == 100)
 		game->right_move = true;
-	if (keycode == 65363) // <-
+	if (keycode == 65363)
 		game->camera_left = true;
-	if (keycode == 65361) // ->
+	if (keycode == 65361)
 		game->camera_right = true;
 	return (0);
 }
 
 int	key_release(int keycode, t_game *game)
 {
-	if (keycode == 119) // W
+	if (keycode == 119)
 		game->up_move = false;
-	if (keycode == 115) // S
+	if (keycode == 115)
 		game->down_move = false;
-	if (keycode == 97) // A
+	if (keycode == 97)
 		game->left_move = false;
-	if (keycode == 100) // D
+	if (keycode == 100)
 		game->right_move = false;
-	if (keycode == 65363) // <-
+	if (keycode == 65363)
 		game->camera_left = false;
-	if (keycode == 65361) // ->
+	if (keycode == 65361)
 		game->camera_right = false;
 	return (0);
 }
