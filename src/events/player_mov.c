@@ -1,72 +1,71 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_hooks.c                                        :+:      :+:    :+:   */
+/*   player_mov.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:33:43 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/02 09:19:40 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:18:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../includes/cub3d.h"
 
-/*Test changed to != -1 other that equal to everything*/
+#include "../../includes/cub3d.h"
 
 void	move_right(t_game *game)
 {
 	char	test;
 
-	test = game->map[(int)(game->player.posY + game->player.dirX * 0.15f)]
-	[(int)(game->player.posX)];
+	test = game->map[(int)(game->player.posy + game->player.dirx * 0.15f)]
+	[(int)(game->player.posx)];
 	if (test != '1')
-		game->player.posY += game->player.dirX * game->player.m_speed;
-	test = game->map[(int)(game->player.posY)]
-	[(int)(game->player.posX - game->player.dirY * 0.15f)];
+		game->player.posy += game->player.dirx * game->player.m_speed;
+	test = game->map[(int)(game->player.posy)]
+	[(int)(game->player.posx - game->player.diry * 0.15f)];
 	if (test != '1')
-		game->player.posX -= game->player.dirY * game->player.m_speed;
+		game->player.posx -= game->player.diry * game->player.m_speed;
 }
 
 void	move_left(t_game *game)
 {
 	char	test;
 
-	test = game->map[(int)(game->player.posY + game->player.dirX * -0.1f)]
-	[(int)(game->player.posX)];
+	test = game->map[(int)(game->player.posy + game->player.dirx * -0.1f)]
+	[(int)(game->player.posx)];
 	if (test != '1')
-		game->player.posY -= game->player.dirX * game->player.m_speed;
-	test = game->map[(int)(game->player.posY)]
-	[(int)(game->player.posX - game->player.dirY * -0.1)];
+		game->player.posy -= game->player.dirx * game->player.m_speed;
+	test = game->map[(int)(game->player.posy)]
+	[(int)(game->player.posx - game->player.diry * -0.1)];
 	if (test != '1')
-		game->player.posX += game->player.dirY * game->player.m_speed;
+		game->player.posx += game->player.diry * game->player.m_speed;
 }
 
 void	move_down(t_game *game)
 {
 	char	test;
 
-	test = game->map[(int)(game->player.posY + game->player.planeX * 0.8f)]
-	[(int)(game->player.posX)];
+	test = game->map[(int)(game->player.posy + game->player.planex * 0.8f)]
+	[(int)(game->player.posx)];
 	if (test != '1')
-		game->player.posY += game->player.planeX * game->player.m_speed;
-	test = game->map[(int)(game->player.posY)]
-	[(int)(game->player.posX - game->player.planeY * 0.8f)];
+		game->player.posy += game->player.planex * game->player.m_speed;
+	test = game->map[(int)(game->player.posy)]
+	[(int)(game->player.posx - game->player.planey * 0.8f)];
 	if (test != '1')
-		game->player.posX -= game->player.planeY * game->player.m_speed;
+		game->player.posx -= game->player.planey * game->player.m_speed;
 }
 
 void	move_up(t_game *game)
 {
 	char	test;
 
-	test = game->map[(int)(game->player.posY + game->player.planeX * -0.22f)]
-	[(int)(game->player.posX)];
+	test = game->map[(int)(game->player.posy + game->player.planex * -0.22f)]
+	[(int)(game->player.posx)];
 	if (test != '1')
-		game->player.posY -= game->player.planeX * game->player.m_speed;
-	test = game->map[(int)(game->player.posY)]
-	[(int)(game->player.posX - game->player.planeY * -0.22f)];
+		game->player.posy -= game->player.planex * game->player.m_speed;
+	test = game->map[(int)(game->player.posy)]
+	[(int)(game->player.posx - game->player.planey * -0.22f)];
 	if (test != '1')
-		game->player.posX += game->player.planeY * game->player.m_speed;
+		game->player.posx += game->player.planey * game->player.m_speed;
 }
 
 void	move_player(t_game *game)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_background.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:31:21 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/29 13:02:35 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:57:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ void	print_background(t_game *game)
 		while (x < 1920)
 		{
 			if (1080 / 2 > y)
-				paint_on_screen_by_pixel(&game->background, x, y, game->f_color);
+				paint_on_screen_by_pixel
+					(&game->background, x, y, game->f_color);
 			else
-				paint_on_screen_by_pixel(&game->background, x, y, game->c_color);
+				paint_on_screen_by_pixel
+					(&game->background, x, y, game->c_color);
 			x++;
 		}
 		y++;

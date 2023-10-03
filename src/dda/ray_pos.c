@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_pos.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:20:28 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/29 14:48:37 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	calculate_ray_pos(t_game *game)
 {
-	game->player.cameraX = 2 * game->player.x / (double)(1920) - 1;
-	game->player.rayDirX = game->player.dirX + game->player.planeX
-		* game->player.cameraX;
-	game->player.rayDirY = game->player.dirY + game->player.planeY
-		* game->player.cameraX;
- 	game->player.mapX = floor(game->player.posX);
-	game->player.mapY = floor(game->player.posY);
+	game->player.camerax = 2 * game->player.x / (double)(1920) - 1;
+	game->player.raydirx = game->player.dirx + game->player.planex
+		* game->player.camerax;
+	game->player.raydiry = game->player.diry + game->player.planey
+		* game->player.camerax;
+	game->player.mapx = floor(game->player.posx);
+	game->player.mapy = floor(game->player.posy);
 }

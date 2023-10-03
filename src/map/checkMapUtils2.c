@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkMapUtils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:06 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/29 15:14:55 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	count_player(t_game *game, int i, int j)
 	if (game->map[i][j] == 'N' || game->map[i][j] == 'S'
 		|| game->map[i][j] == 'E' || game->map[i][j] == 'W')
 	{
-		game->player.mapX = j;
-		game->player.mapY = i;
+		game->player.mapx = j;
+		game->player.mapy = i;
 		game->player_direction = game->map[i][j];
 		game->player_count++;
 	}

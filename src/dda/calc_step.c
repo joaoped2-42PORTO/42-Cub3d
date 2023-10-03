@@ -3,43 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   calc_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:21:34 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/09/28 09:56:03 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	calculate_step_forX(t_game *game)
+void	calculate_step_forx(t_game *game)
 {
-	if (game->player.rayDirX < 0)
+	if (game->player.raydirx < 0)
 	{
-		game->player.stepX = -1;
-		game->player.sideDistX = (game->player.posX - game->player.mapX)
-			* game->player.deltaDistX;
+		game->player.stepx = -1;
+		game->player.sidedistx = (game->player.posx - game->player.mapx)
+			* game->player.deltadistx;
 	}
 	else
 	{
-		game->player.stepX = 1;
-		game->player.sideDistX = (game->player.mapX + 1.0f - game->player.posX)
-			* game->player.deltaDistX;
+		game->player.stepx = 1;
+		game->player.sidedistx = (game->player.mapx + 1.0f - game->player.posx)
+			* game->player.deltadistx;
 	}
 }
 
-void	calculate_step_forY(t_game *game)
+void	calculate_step_fory(t_game *game)
 {
-	if (game->player.rayDirY < 0)
+	if (game->player.raydiry < 0)
 	{
-		game->player.stepY = -1;
-		game->player.sideDistY = (game->player.posY - game->player.mapY)
-			* game->player.deltaDistY;
+		game->player.stepy = -1;
+		game->player.sidedisty = (game->player.posy - game->player.mapy)
+			* game->player.deltadisty;
 	}
 	else
 	{
-		game->player.stepY = 1;
-		game->player.sideDistY = (game->player.mapY + 1.0f - game->player.posY)
-			* game->player.deltaDistY;
+		game->player.stepy = 1;
+		game->player.sidedisty = (game->player.mapy + 1.0f - game->player.posy)
+			* game->player.deltadisty;
 	}
 }

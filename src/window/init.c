@@ -3,52 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/02 15:38:43 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
+void	init_player_starting_pos2(t_game *game)
+{
+	if (game->map[game->player.mapy][game->player.mapx] == 'E')
+	{
+		game->player.dirx = 1.0f;
+		game->player.diry = 0.0f;
+		game->player.planex = 0;
+		game->player.planey = 0.66;
+	}
+	else if (game->map[game->player.mapy][game->player.mapx] == 'W')
+	{
+		game->player.dirx = -1.0f;
+		game->player.diry = 0.0f;
+		game->player.planex = 0;
+		game->player.planey = -0.66;
+	}
+}
+
 void	init_player_starting_pos(t_game *game)
 {
-	if (game->map[game->player.mapY][game->player.mapX] == 'N')
+	if (game->map[game->player.mapy][game->player.mapx] == 'N')
 	{
-		game->player.dirX= 0.0f;
-		game->player.dirY = -1.0f;
-		game->player.planeX = 0.66;
-		game->player.planeY = 0;
+		game->player.dirx = 0.0f;
+		game->player.diry = -1.0f;
+		game->player.planex = 0.66;
+		game->player.planey = 0;
 	}
-	else if (game->map[game->player.mapY][game->player.mapX] == 'S')
+	else if (game->map[game->player.mapy][game->player.mapx] == 'S')
 	{
-		game->player.dirX= 0.0f;
-		game->player.dirY = 1.0f;
-		game->player.planeX = -0.66;
-		game->player.planeY = 0;
+		game->player.dirx = 0.0f;
+		game->player.diry = 1.0f;
+		game->player.planex = -0.66;
+		game->player.planey = 0;
 	}
-	else if (game->map[game->player.mapY][game->player.mapX] == 'E')
-	{
-		game->player.dirX= 1.0f;
-		game->player.dirY = 0.0f;
-		game->player.planeX = 0;
-		game->player.planeY = 0.66;
-
-	}
-	else if (game->map[game->player.mapY][game->player.mapX] == 'W')
-	{
-		game->player.dirX= -1.0f;
-		game->player.dirY = 0.0f;
-		game->player.planeX = 0;
-		game->player.planeY = -0.66;
-	}
+	init_player_starting_pos2(game);
 }
 
 void	init_values(t_game *game)
 {
-	game->player.posX = game->player.mapX + 0.5;
-	game->player.posY = game->player.mapY + 0.5;
+	game->player.posx = game->player.mapx + 0.5;
+	game->player.posy = game->player.mapy + 0.5;
 	game->db.tmpfl = 0.0;
 	game->db.tmpint = 0;
 	game->ceeling.blue = -1;
@@ -60,37 +64,45 @@ void	init_values(t_game *game)
 	game->player.hit = 0;
 	game->player.m_speed = 0.08f;
 	game->player.r_speed = 0.03f;
-	game->player.sideDistX = 2;
-	game->player.sideDistY = 2;
+	game->player.sidedistx = 2;
+	game->player.sidedisty = 2;
 	init_player_starting_pos(game);
+}
+
+void	init_images2(t_game *game)
+{
+	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, game->e_texture,
+			&game->wall.e_wall.width, &game->wall.e_wall.height);
+	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
+			&game->wall.e_wall.bits_per_pixel,
+			&game->wall.e_wall.line_length,
+			&game->wall.e_wall.endian);
+	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, game->w_texture,
+			&game->wall.w_wall.width, &game->wall.w_wall.height);
+	game->wall.w_wall.addr = mlx_get_data_addr(game->wall.w_wall.img,
+			&game->wall.w_wall.bits_per_pixel,
+			&game->wall.w_wall.line_length,
+			&game->wall.w_wall.endian);
 }
 
 void	init_images(t_game *game)
 {
 	game->background.img = mlx_new_image(game->mlx, 1920, 1080);
 	game->background.addr = mlx_get_data_addr(game->background.img,
-												&game->background.bits_per_pixel,
-												&game->background.line_length,
-												&game->background.endian);
-																	// Mal (Precisa de ser verificado antes se o path e valido e depois mandar para aqui)
-	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, game->n_texture, &game->wall.n_wall.width, &game->wall.n_wall.height);
+			&game->background.bits_per_pixel,
+			&game->background.line_length,
+			&game->background.endian);
+	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, game->n_texture,
+			&game->wall.n_wall.width, &game->wall.n_wall.height);
 	game->wall.n_wall.addr = mlx_get_data_addr(game->wall.n_wall.img,
-												&game->wall.n_wall.bits_per_pixel,
-												&game->wall.n_wall.line_length,
-												&game->wall.n_wall.endian);
-	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, game->s_texture, &game->wall.s_wall.width, &game->wall.s_wall.height);
+			&game->wall.n_wall.bits_per_pixel,
+			&game->wall.n_wall.line_length,
+			&game->wall.n_wall.endian);
+	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, game->s_texture,
+			&game->wall.s_wall.width, &game->wall.s_wall.height);
 	game->wall.s_wall.addr = mlx_get_data_addr(game->wall.s_wall.img,
-												&game->wall.s_wall.bits_per_pixel,
-												&game->wall.s_wall.line_length,
-												&game->wall.s_wall.endian);
-	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, game->e_texture, &game->wall.e_wall.width, &game->wall.e_wall.height);
-	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
-												&game->wall.e_wall.bits_per_pixel,
-												&game->wall.e_wall.line_length,
-												&game->wall.e_wall.endian);
-	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, game->w_texture, &game->wall.w_wall.width, &game->wall.w_wall.height);
-	game->wall.w_wall.addr = mlx_get_data_addr(game->wall.w_wall.img,
-												&game->wall.w_wall.bits_per_pixel,
-												&game->wall.w_wall.line_length,
-												&game->wall.w_wall.endian);
+			&game->wall.s_wall.bits_per_pixel,
+			&game->wall.s_wall.line_length,
+			&game->wall.s_wall.endian);
+	init_images2(game);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/02 15:31:47 by joaoped2         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:17:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# define screenHeight 1920
-# define screenWidth 1080
+# define SCREENHEIGHT 1920
+# define SCREENWIDTH 1080
 # define MAXDOUBLE 1e30
 # define IMGPX 50
 # include "../libft/libft.h"
@@ -39,14 +39,12 @@ typedef struct s_image
 
 typedef struct s_wall
 {
-	double			wallX;
-	double			wallY;
-	int				lineHeight;
-	int				drawStart;
-	int				drawEnd;
-	int				texX;
-	int				texY;
-	double			textposit;
+	double			wallx;
+	int				lineheight;
+	int				drawstart;
+	int				drawend;
+	int				texx;
+	double			texy;
 	t_image			n_wall;
 	t_image			s_wall;
 	t_image			e_wall;
@@ -64,28 +62,24 @@ typedef struct s_debug
 typedef struct s_player
 {
 	int				x;
-	double			prev_x;
-	double			prev_y;
-	double			prev_sidx;
-	double			prev_sidy;
-	double			posX;
-	double			posY;
-	double			dirX;
-	double			dirY;
-	double			planeX;
-	double			planeY;
-	double			cameraX;
-	double			rayDirX;
-	double			rayDirY;
-	int				mapX;
-	int				mapY;
-	double			sideDistX;
-	double			sideDistY;
-	double			deltaDistX;
-	double			deltaDistY;
-	double			perpWallDist;
-	int				stepX;
-	int				stepY;
+	double			posx;
+	double			posy;
+	double			dirx;
+	double			diry;
+	double			planex;
+	double			planey;
+	double			camerax;
+	double			raydirx;
+	double			raydiry;
+	int				mapx;
+	int				mapy;
+	double			sidedistx;
+	double			sidedisty;
+	double			deltadistx;
+	double			deltadisty;
+	double			perpwalldist;
+	int				stepx;
+	int				stepy;
 	int				hit;
 	int				side;
 	float			m_speed;
@@ -122,7 +116,7 @@ typedef struct s_game
 	char			**map;
 	char			player_direction;
 	int				fd;
-	int max_x; // ATENCAO! tem que ser -1 por causa do \n e \0
+	int				max_x;
 	int				max_y;
 	int				map_start_i;
 	int				player_count;
@@ -183,7 +177,7 @@ bool				check_map(t_game *game);
 bool				check_char(char **str, t_game *game);
 bool				inside_map(t_game *game);
 void				loop_change_map(t_game *game, int i, char **new_map);
-void				change_string_textures(t_game *game)
+void				change_string_textures(t_game *game);
 
 /* 			checkMapUtils.c			*/
 void				change_map(t_game *game);
@@ -211,7 +205,7 @@ void				print_background(t_game *game);
 
 /* 			mlx_draw/draw.c			*/
 int					img_px(t_image img, int x, int y);
-int					check_for_x(t_game *game, int texX);
+int					check_for_x(t_game *game, int texx);
 double				init_wall_x(t_game *game);
 void				init_walls(t_game *game);
 void				insert_wall_texture(t_game *game, int x, int y);
@@ -242,8 +236,8 @@ void				camera_right(t_game *game);
 void				calculate_camera_direction(t_game *game);
 
 /* 			dda/calc_step.c				*/
-void				calculate_step_forX(t_game *game);
-void				calculate_step_forY(t_game *game);
+void				calculate_step_forx(t_game *game);
+void				calculate_step_fory(t_game *game);
 
 /* 			dda/dda_checkers.c		*/
 void				check_hit(t_game *game);
@@ -252,8 +246,8 @@ void				check_hit(t_game *game);
 void				doalldda(t_game *game);
 
 /*			dda/ray_len.c			*/
-void				calculate_ray_lenght_forX(t_game *game);
-void				calculate_ray_lenght_forY(t_game *game);
+void				calculate_ray_lenght_forx(t_game *game);
+void				calculate_ray_lenght_fory(t_game *game);
 
 /*			dda/ray_pos.c			*/
 void				calculate_ray_pos(t_game *game);

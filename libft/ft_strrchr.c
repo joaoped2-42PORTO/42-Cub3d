@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 12:40:15 by huolivei          #+#    #+#             */
-/*   Updated: 2022/11/29 15:02:08 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:22:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ char	*ft_strrchr(const char *str, int c)
 	return ((char *)str + i);
 }
 
-#include <string.h>
-#include <stdio.h>
+// #include <string.h>
+// #include <stdio.h>
 
-int main()
-{
-    // Storing it in string array
-    char string[] = "Geeks for Geeks";
+// int main()
+// {
+//     // Storing it in string array
+//     char string[] = "Geeks for Geeks";
 
-    // The character we've to search for
-    char character = 'r';
+//     // The character we've to search for
+//     char character = 'r';
 
-    // Storing in a pointer ptr
-    char* ptr = strrchr(string, character);
-    printf("%c\n", *ptr);
-    ptr = ft_strrchr(string, character);
-    printf("%c\n", *ptr);
-    return 0;
-}
+//     // Storing in a pointer ptr
+//     char* ptr = strrchr(string, character);
+//     printf("%c\n", *ptr);
+//     ptr = ft_strrchr(string, character);
+//     printf("%c\n", *ptr);
+//     return 0;
+// }
