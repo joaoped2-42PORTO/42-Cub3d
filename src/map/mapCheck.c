@@ -6,7 +6,7 @@
 /*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:50 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/22 17:31:56 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:35:49 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,15 @@ int	read_string(char *str, t_game *game)
 bool	valid_map(t_game *game)
 {
 	int	i;
-	int	qty;
 
-	qty = 0;
+	game->element_qty = 0;
 	i = 0;
 	while (!game->n_texture || !game->ceeling_texture || !game->floor_texture
 		|| !game->e_texture || !game->w_texture || !game->s_texture)
 	{
-		qty += read_string(game->map[i], game);
+		game->element_qty += read_string(game->map[i], game);
 		i++;
-		if (!game->map[i] || qty < 0)
+		if (!game->map[i] || game->element_qty < 0)
 			return (false);
 	}
 	while (game->map[i][0] == '\n')
@@ -50,7 +49,7 @@ bool	valid_map(t_game *game)
 		if (!game->map[i])
 			return (false);
 	}
-	if (qty == 6)
+	if (game->element_qty == 6)
 		game->map_start_i = i;
 	else
 		return (false);

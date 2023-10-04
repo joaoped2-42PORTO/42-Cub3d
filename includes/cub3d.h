@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/03 17:17:14 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/04 19:34:58 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ typedef struct s_game
 	int				max_y;
 	int				map_start_i;
 	int				player_count;
+	int				element_qty;
 	unsigned int	f_color;
 	unsigned int	c_color;
 	char			*n_texture;
@@ -195,6 +196,8 @@ void				change_max_x(t_game *game, char **str);
 /* 			window/game.c			*/
 int					render_next_frame(t_game *game);
 int					openwindow(t_game *game);
+void				put_wall(t_game *game, int i, int x);
+void				print_minimap(t_game *game, int i, int j, int color);
 
 /*			window/init.c			*/
 void				init_values(t_game *game);

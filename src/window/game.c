@@ -3,20 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/04 19:30:44 by huolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
+void	print_minimap(t_game *game, int i, int j, int color)
+{
+	int	k;
+
+	k = 0;
+	while (k < 10)
+	{
+		mlx_pixel_put(game->mlx, game->win, j * 10 + k, i * 10, color);
+		mlx_pixel_put(game->mlx, game->win, j * 10, i * 10 + k, color);
+		mlx_pixel_put(game->mlx, game->win, j * 10 + k, i * 10 + 10, color);
+		mlx_pixel_put(game->mlx, game->win, j * 10 + 10, i * 10 + k, color);
+		k++;
+	}
+}
+
 void	put_wall(t_game *game, int i, int x)
 {
 	int	j;
 
-	j = 50;
+	j = 10;
 	if (i < game->player.mapy)
 		game->img.img = mlx_xpm_file_to_image(game->mlx,
 				"./images/NO.xpm", &j, &j);
@@ -44,9 +59,9 @@ void	print_window(t_game *game)
 		while (game->map[i][j])
 		{
 			if (game->map[i][j] == '1')
-			{
-				put_wall(game, i, j);
-			}
+				print_minimap(game, i, j, 0x0000000);
+			if (i == (int)game->player.posy && j == (int)game->player.posx)
+				print_minimap(game, i, j, 0x00FF0000);
 			j++;
 		}
 		i++;
@@ -58,6 +73,7 @@ int	render_next_frame(t_game *game)
 	print_background(game);
 	doalldda(game);
 	move_player(game);
+	print_window(game);
 	return (0);
 }
 
