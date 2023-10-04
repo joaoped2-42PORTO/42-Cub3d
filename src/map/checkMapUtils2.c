@@ -36,16 +36,26 @@ bool	loop_inside_map(t_game *game, int i, int j)
 	return (false);
 }
 
-void	count_player(t_game *game, int i, int j)
+bool	count_player(t_game *game, int i, int j)
 {
 	if (game->map[i][j] == 'N' || game->map[i][j] == 'S'
 		|| game->map[i][j] == 'E' || game->map[i][j] == 'W')
 	{
+		if (game->map[i - 1][j] == '\0' || game->map[i + 1][j] == '\0'
+			|| game->map[i][j - 1] == '\0' || game->map[i][j + 1] == '\0')
+			return (true);
+		if (game->map[i - 1][j] == ' ' || game->map[i + 1][j] == ' '
+			|| game->map[i][j - 1] == ' ' || game->map[i][j + 1] == ' ')
+			return (true);
+		if (game->map[i - 1][j] == '\n' || game->map[i + 1][j] == '\n'
+			|| game->map[i][j - 1] == '\n' || game->map[i][j + 1] == '\n')
+			return (true);
 		game->player.mapx = j;
 		game->player.mapy = i;
 		game->player_direction = game->map[i][j];
 		game->player_count++;
 	}
+	return (false);
 }
 
 void	change_max_x(t_game *game, char **str)

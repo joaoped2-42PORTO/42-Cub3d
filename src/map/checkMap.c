@@ -48,7 +48,8 @@ bool	inside_map(t_game *game)
 		size = (int)ft_strlen(game->map[i]) - 1;
 		while (j < size)
 		{
-			count_player(game, i, j);
+			if (count_player(game, i, j))
+				return (false);
 			if (game->map[i][j] == '0')
 			{
 				if (loop_inside_map(game, i, j))

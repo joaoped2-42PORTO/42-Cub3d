@@ -189,7 +189,7 @@ bool				loop_map(t_game *game, int size, int *i);
 /* 			checkMapUtils2.c		*/
 bool				loop_map_closed(t_game *game, int i);
 bool				loop_inside_map(t_game *game, int i, int j);
-void				count_player(t_game *game, int i, int j);
+bool				count_player(t_game *game, int i, int j);
 void				change_max_x(t_game *game, char **str);
 
 /* 			window/game.c			*/
