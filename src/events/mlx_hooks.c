@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:33:43 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/04 19:30:23 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:32:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	key_press(int keycode, t_game *game)
 		game->camera_left = true;
 	if (keycode == 65361)
 		game->camera_right = true;
+	if (keycode == 65507)
+		game->gun = true;
 	return (0);
 }
 
@@ -45,5 +47,7 @@ int	key_release(int keycode, t_game *game)
 		game->camera_left = false;
 	if (keycode == 65361)
 		game->camera_right = false;
+	if (keycode == 65507)
+		game->gun = false;
 	return (0);
 }

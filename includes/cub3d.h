@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/04 19:34:58 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:27:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ typedef struct s_wall
 	t_image			e_wall;
 	t_image			w_wall;
 }					t_wall;
+
+typedef struct s_gun
+{
+	t_image gun1;
+	t_image gun2;
+}					t_gun;
 
 typedef struct s_debug
 {
@@ -113,6 +119,7 @@ typedef struct s_game
 	bool			right_move;
 	bool			camera_left;
 	bool			camera_right;
+	bool			gun;
 	char			**map;
 	char			player_direction;
 	int				fd;
@@ -138,6 +145,7 @@ typedef struct s_game
 	t_colors		ceeling;
 	t_wall			wall;
 	t_debug			db;
+	t_gun			gun_img;
 }					t_game;
 
 /* 			cub3d.c					*/
@@ -196,7 +204,6 @@ void				change_max_x(t_game *game, char **str);
 /* 			window/game.c			*/
 int					render_next_frame(t_game *game);
 int					openwindow(t_game *game);
-void				put_wall(t_game *game, int i, int x);
 void				print_minimap(t_game *game, int i, int j, int color);
 
 /*			window/init.c			*/

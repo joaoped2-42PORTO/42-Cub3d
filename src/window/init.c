@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/05 15:26:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,22 @@ void	init_values(t_game *game)
 	init_player_starting_pos(game);
 }
 
+void	gun_images(t_game *game)
+{
+	game->gun_img.gun1.img = mlx_xpm_file_to_image(game->mlx,  "./images/1.xpm",
+			&game->gun_img.gun1.width, &game->gun_img.gun1.height);
+	game->gun_img.gun1.addr = mlx_get_data_addr(game->gun_img.gun1.img,
+			&game->gun_img.gun1.bits_per_pixel,
+			&game->gun_img.gun1.line_length,
+			&game->gun_img.gun1.endian);
+	game->gun_img.gun2.img = mlx_xpm_file_to_image(game->mlx,  "./images/2.xpm",
+			&game->gun_img.gun1.width, &game->gun_img.gun1.height);
+	game->gun_img.gun2.addr = mlx_get_data_addr(game->gun_img.gun2.img,
+			&game->gun_img.gun2.bits_per_pixel,
+			&game->gun_img.gun2.line_length,
+			&game->gun_img.gun2.endian);
+}
+
 void	init_images2(t_game *game)
 {
 	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, game->e_texture,
@@ -83,6 +99,7 @@ void	init_images2(t_game *game)
 			&game->wall.w_wall.bits_per_pixel,
 			&game->wall.w_wall.line_length,
 			&game->wall.w_wall.endian);
+	gun_images(game);
 }
 
 void	init_images(t_game *game)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/04 19:30:44 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:02:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,6 @@ void	print_minimap(t_game *game, int i, int j, int color)
 		mlx_pixel_put(game->mlx, game->win, j * 10 + 10, i * 10 + k, color);
 		k++;
 	}
-}
-
-void	put_wall(t_game *game, int i, int x)
-{
-	int	j;
-
-	j = 10;
-	if (i < game->player.mapy)
-		game->img.img = mlx_xpm_file_to_image(game->mlx,
-				"./images/NO.xpm", &j, &j);
-	else if (i >= game->player.mapy)
-		game->img.img = mlx_xpm_file_to_image(game->mlx,
-				"./images/SO.xpm", &j, &j);
-	game->img.addr = mlx_get_data_addr(game->img.img,
-			&game->img.bits_per_pixel,
-			&game->img.line_length,
-			&game->img.endian);
-	j = game->img.line_length / 4;
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img, x * j, i * j);
-	mlx_destroy_image(game->mlx, game->img.img);
 }
 
 void	print_window(t_game *game)
@@ -68,12 +48,24 @@ void	print_window(t_game *game)
 	}
 }
 
+void	gun(t_game *game)
+{
+	mlx_put_image_to_window(game->mlx, game->win, game->gun_img.gun1.img, 1080, 700);
+	if (game->gun)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->gun_img.gun2.img, 1080, 700);
+		game->gun = false;
+	}
+}
+
+
 int	render_next_frame(t_game *game)
 {
 	print_background(game);
 	doalldda(game);
 	move_player(game);
 	print_window(game);
+	gun(game);
 	return (0);
 }
 
