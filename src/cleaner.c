@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:47 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/05 15:27:02 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/05 15:32:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	ft_clean_exit(t_game *game)
 		mlx_clear_window(game->mlx, game->win);
 		mlx_destroy_window(game->mlx, game->win);
 	}
-	mlx_destroy_image(game->mlx, game->gun_img.gun1);
-	mlx_destroy_image(game->mlx, game->gun_img.gun2);
+	mlx_destroy_image(game->mlx, game->gun_img.gun1.img);
+	mlx_destroy_image(game->mlx, game->gun_img.gun2.img);
 	mlx_destroy_image(game->mlx, game->wall.n_wall.img);
 	mlx_destroy_image(game->mlx, game->wall.s_wall.img);
 	mlx_destroy_image(game->mlx, game->wall.e_wall.img);

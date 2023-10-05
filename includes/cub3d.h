@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:56 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/05 15:27:06 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/05 15:31:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ typedef struct s_wall
 
 typedef struct s_gun
 {
-	t_image gun1;
-	t_image gun2;
+	t_image			gun1;
+	t_image			gun2;
 }					t_gun;
 
 typedef struct s_debug
@@ -226,6 +226,10 @@ unsigned int		mlx_rgb_to_int(int r, int g, int b);
 void				paint_on_screen_by_pixel(t_image *img, int x, int y,
 						int color);
 int					create_trgb(int t, int r, int g, int b);
+
+/* 			mlx_draw/sprite.c		*/
+void				gun_images(t_game *game);
+void				gun(t_game *game);
 
 /*			events/mlx_hooks.c 		*/
 int					key_press(int keycode, t_game *game);

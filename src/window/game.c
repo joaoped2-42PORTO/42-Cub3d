@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/05 15:02:34 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/05 15:31:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,6 @@ void	print_window(t_game *game)
 		i++;
 	}
 }
-
-void	gun(t_game *game)
-{
-	mlx_put_image_to_window(game->mlx, game->win, game->gun_img.gun1.img, 1080, 700);
-	if (game->gun)
-	{
-		mlx_put_image_to_window(game->mlx, game->win, game->gun_img.gun2.img, 1080, 700);
-		game->gun = false;
-	}
-}
-
 
 int	render_next_frame(t_game *game)
 {
