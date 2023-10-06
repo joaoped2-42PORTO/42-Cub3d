@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:13:30 by neddy             #+#    #+#             */
-/*   Updated: 2023/10/05 15:24:45 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 15:49:30 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	doalldda(t_game *game)
 {
 	game->player.x = 0;
-	while (game->player.x < 1920)
+	while (game->player.x < SCREENHEIGHT)
 	{
 		calculate_ray_pos(game);
 		calculate_ray_lenght_forx(game);

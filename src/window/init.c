@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/05 15:30:55 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 15:49:29 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	init_images2(t_game *game)
 
 void	init_images(t_game *game)
 {
-	game->background.img = mlx_new_image(game->mlx, 1920, 1080);
+	game->background.img = mlx_new_image(game->mlx, SCREENHEIGHT, SCREENWIDTH);
 	game->background.addr = mlx_get_data_addr(game->background.img,
 			&game->background.bits_per_pixel,
 			&game->background.line_length,

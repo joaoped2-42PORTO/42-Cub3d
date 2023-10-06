@@ -6,7 +6,7 @@
 /*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:02:24 by neddy             #+#    #+#             */
-/*   Updated: 2023/10/06 13:13:38 by neddy            ###   ########.fr       */
+/*   Updated: 2023/10/06 15:48:52 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	draw_images_to_game(t_game *game, int x)
 	y = game->wall.drawstart;
 	helpdraw(game);
 	step = 1.0 * IMGPX / game->wall.lineheight;
-	game->wall.texy = (game->wall.drawstart - 1080 / 2
+	game->wall.texy = (game->wall.drawstart - SCREENWIDTH / 2
 			+ game->wall.lineheight / 2) * step;
 	while (y < game->wall.drawend)
 	{
