@@ -40,8 +40,8 @@ void	print_sprite(t_game *game)
 		x = 0;
 		while (x < SCREENWIDTH)
 		{
-				paint_on_screen_by_pixel
-					(&game->background, x, y, img_px(game->gun_img.gun1, x, y));
+			paint_on_screen_by_pixel
+				(&game->background, x, y, img_px(game->gun_img.gun1, x, y));
 			x++;
 		}
 		y++;
@@ -53,9 +53,11 @@ void	gun_helper(t_game *game)
 {
 	int	x;
 	int	y;
+	int	color;
 
 	x = 0;
 	y = 0;
+	color = 0;
 	if (game->gun)
 	{
 		while (y < game->gun_img.gun1.height)
@@ -63,9 +65,10 @@ void	gun_helper(t_game *game)
 			x = 0;
 			while (x < game->gun_img.gun1.width)
 			{
-				int color = img_px(game->gun_img.gun2, x, y);
+				color = img_px(game->gun_img.gun2, x, y);
 				if (color != 16711905)
-					paint_on_screen_by_pixel(&game->background, x + SCREENWIDTH, y + 800, color);
+					paint_on_screen_by_pixel
+						(&game->background, x + SCREENWIDTH, y + 800, color);
 				x++;
 			}
 			y++;
@@ -78,17 +81,20 @@ void	gun(t_game *game)
 {
 	int	x;
 	int	y;
+	int	color;
 
 	x = 0;
 	y = 0;
+	color = 0;
 	while (y < game->gun_img.gun1.height)
 	{
 		x = 0;
 		while (x < game->gun_img.gun1.width)
 		{
-			int color = img_px(game->gun_img.gun1, x, y);
+			color = img_px(game->gun_img.gun1, x, y);
 			if (color != 16711905)
-				paint_on_screen_by_pixel(&game->background, x + SCREENWIDTH, y + 800, color);
+				paint_on_screen_by_pixel
+					(&game->background, x + SCREENWIDTH, y + 800, color);
 			x++;
 		}
 		y++;
