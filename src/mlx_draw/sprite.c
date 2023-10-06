@@ -28,14 +28,70 @@ void	gun_images(t_game *game)
 			&game->gun_img.gun2.endian);
 }
 
-void	gun(t_game *game)
+void	print_sprite(t_game *game)
 {
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->gun_img.gun1.img, 1080, 700);
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < 500)
+	{
+		x = 0;
+		while (x < 1080)
+		{
+				paint_on_screen_by_pixel
+					(&game->background, x, y, img_px(game->gun_img.gun1, x, y));
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(game->mlx, game->win, game->gun_img.gun1.img, 0, 0);
+}
+
+void	gun_helper(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
 	if (game->gun)
 	{
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->gun_img.gun2.img, 1080, 700);
-		game->gun = false;
+		while (y < game->gun_img.gun1.height)
+		{
+			x = 0;
+			while (x < game->gun_img.gun1.width)
+			{
+				int color = img_px(game->gun_img.gun2, x, y);
+				if (color != 16711905)
+					paint_on_screen_by_pixel(&game->background, x + 1080, y + 500, color);
+				x++;
+			}
+			y++;
+		}
 	}
+	game->gun = false;
+}
+
+void	gun(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < game->gun_img.gun1.height)
+	{
+		x = 0;
+		while (x < game->gun_img.gun1.width)
+		{
+			int color = img_px(game->gun_img.gun1, x, y);
+			if (color != 16711905)
+				paint_on_screen_by_pixel(&game->background, x + 1080, y + 500, color);
+			x++;
+		}
+		y++;
+	}
+	gun_helper(game);
 }

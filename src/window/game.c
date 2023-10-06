@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/05 15:31:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 15:33:54 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	render_next_frame(t_game *game)
 {
 	print_background(game);
 	doalldda(game);
+	gun(game);
 	move_player(game);
 	print_window(game);
-	gun(game);
 	return (0);
 }
 

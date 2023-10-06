@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:33:00 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/03 16:55:51 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/06 12:22:14 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	paint_on_screen_by_pixel(t_image *img, int x, int y, int color)
 {
 	char	*dst;
 
-	if (color == (int)0x00980088)
+	if (color == (int)0x00980088 || color == (int)16711935)
 		return ;
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
