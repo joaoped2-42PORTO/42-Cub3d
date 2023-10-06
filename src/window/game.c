@@ -15,10 +15,19 @@
 void	print_minimap(t_game *game, int i, int j, int color)
 {
 	int	k;
+	int	l;
+
 
 	k = 0;
 	while (k < 10)
 	{
+		l = 0;
+		while (l <= k)
+		{
+			mlx_pixel_put(game->mlx, game->win, j * 10 + l, i * 10 + k, color);
+			mlx_pixel_put(game->mlx, game->win, j * 10 + k, i * 10 + l, color);
+			l++;
+		}
 		mlx_pixel_put(game->mlx, game->win, j * 10 + k, i * 10, color);
 		mlx_pixel_put(game->mlx, game->win, j * 10, i * 10 + k, color);
 		mlx_pixel_put(game->mlx, game->win, j * 10 + k, i * 10 + 10, color);
