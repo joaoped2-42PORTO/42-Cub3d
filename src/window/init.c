@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/06 15:49:29 by neddy            ###   ########.fr       */
+/*   Updated: 2023/10/07 15:43:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,22 @@ void	init_values(t_game *game)
 
 void	init_images2(t_game *game)
 {
-	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, game->e_texture,
-			&game->wall.e_wall.width, &game->wall.e_wall.height);
-	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
-			&game->wall.e_wall.bits_per_pixel,
-			&game->wall.e_wall.line_length,
-			&game->wall.e_wall.endian);
-	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, game->w_texture,
-			&game->wall.w_wall.width, &game->wall.w_wall.height);
+	game->wall.s_wall.addr = mlx_get_data_addr(game->wall.s_wall.img,
+			&game->wall.s_wall.bits_per_pixel,
+			&game->wall.s_wall.line_length,
+			&game->wall.s_wall.endian);
+	game->wall.n_wall.addr = mlx_get_data_addr(game->wall.n_wall.img,
+			&game->wall.n_wall.bits_per_pixel,
+			&game->wall.n_wall.line_length,
+			&game->wall.n_wall.endian);
 	game->wall.w_wall.addr = mlx_get_data_addr(game->wall.w_wall.img,
 			&game->wall.w_wall.bits_per_pixel,
 			&game->wall.w_wall.line_length,
 			&game->wall.w_wall.endian);
+	game->wall.e_wall.addr = mlx_get_data_addr(game->wall.e_wall.img,
+			&game->wall.e_wall.bits_per_pixel,
+			&game->wall.e_wall.line_length,
+			&game->wall.e_wall.endian);
 	gun_images(game);
 }
 
@@ -95,15 +99,17 @@ void	init_images(t_game *game)
 			&game->background.endian);
 	game->wall.n_wall.img = mlx_xpm_file_to_image(game->mlx, game->n_texture,
 			&game->wall.n_wall.width, &game->wall.n_wall.height);
-	game->wall.n_wall.addr = mlx_get_data_addr(game->wall.n_wall.img,
-			&game->wall.n_wall.bits_per_pixel,
-			&game->wall.n_wall.line_length,
-			&game->wall.n_wall.endian);
 	game->wall.s_wall.img = mlx_xpm_file_to_image(game->mlx, game->s_texture,
 			&game->wall.s_wall.width, &game->wall.s_wall.height);
-	game->wall.s_wall.addr = mlx_get_data_addr(game->wall.s_wall.img,
-			&game->wall.s_wall.bits_per_pixel,
-			&game->wall.s_wall.line_length,
-			&game->wall.s_wall.endian);
+	game->wall.e_wall.img = mlx_xpm_file_to_image(game->mlx, game->e_texture,
+			&game->wall.e_wall.width, &game->wall.e_wall.height);
+	game->wall.w_wall.img = mlx_xpm_file_to_image(game->mlx, game->w_texture,
+			&game->wall.w_wall.width, &game->wall.w_wall.height);
+	if (game->wall.n_wall.img == NULL || game->wall.s_wall.img == NULL
+		|| game->wall.e_wall.img == NULL || game->wall.w_wall.img == NULL)
+	{
+		printf("Error\nInvalid texture\n");
+		ft_clean_exit(game);
+	}
 	init_images2(game);
 }

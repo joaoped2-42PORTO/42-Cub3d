@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:47 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/05 15:32:53 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/07 15:37:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,20 @@ int	ft_clean_exit(t_game *game)
 		mlx_clear_window(game->mlx, game->win);
 		mlx_destroy_window(game->mlx, game->win);
 	}
-	mlx_destroy_image(game->mlx, game->gun_img.gun1.img);
-	mlx_destroy_image(game->mlx, game->gun_img.gun2.img);
-	mlx_destroy_image(game->mlx, game->wall.n_wall.img);
-	mlx_destroy_image(game->mlx, game->wall.s_wall.img);
-	mlx_destroy_image(game->mlx, game->wall.e_wall.img);
-	mlx_destroy_image(game->mlx, game->wall.w_wall.img);
-	mlx_destroy_image(game->mlx, game->background.img);
+	if (game->gun_img.gun1.img != NULL)
+		mlx_destroy_image(game->mlx, game->gun_img.gun1.img);
+	if (game->gun_img.gun2.img != NULL)
+		mlx_destroy_image(game->mlx, game->gun_img.gun2.img);
+	if (game->wall.n_wall.img != NULL)
+		mlx_destroy_image(game->mlx, game->wall.n_wall.img);
+	if (game->wall.s_wall.img != NULL)
+		mlx_destroy_image(game->mlx, game->wall.s_wall.img);
+	if (game->wall.e_wall.img != NULL)
+		mlx_destroy_image(game->mlx, game->wall.e_wall.img);
+	if (game->wall.w_wall.img != NULL)
+		mlx_destroy_image(game->mlx, game->wall.w_wall.img);
+	if (game->background.img != NULL)
+		mlx_destroy_image(game->mlx, game->background.img);
 	if (game->mlx)
 		mlx_destroy_display(game->mlx);
 	free(game->mlx);
