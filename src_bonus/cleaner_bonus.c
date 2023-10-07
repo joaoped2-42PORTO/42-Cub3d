@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleaner.c                                          :+:      :+:    :+:   */
+/*   cleaner_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:22:47 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/07 16:27:33 by neddy            ###   ########.fr       */
+/*   Updated: 2023/10/07 16:29:48 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	free_game(t_game *game)
 {
@@ -53,6 +53,10 @@ int	ft_clean_exit(t_game *game)
 		mlx_clear_window(game->mlx, game->win);
 		mlx_destroy_window(game->mlx, game->win);
 	}
+	if (game->gun_img.gun1.img != NULL)
+		mlx_destroy_image(game->mlx, game->gun_img.gun1.img);
+	if (game->gun_img.gun2.img != NULL)
+		mlx_destroy_image(game->mlx, game->gun_img.gun2.img);
 	if (game->wall.n_wall.img != NULL)
 		mlx_destroy_image(game->mlx, game->wall.n_wall.img);
 	if (game->wall.s_wall.img != NULL)

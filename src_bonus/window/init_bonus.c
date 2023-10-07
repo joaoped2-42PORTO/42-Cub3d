@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:30:02 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/07 16:27:54 by neddy            ###   ########.fr       */
+/*   Updated: 2023/10/07 16:30:15 by neddy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../includes/cub3d_bonus.h"
 
 void	init_player_starting_pos2(t_game *game)
 {
@@ -85,6 +85,7 @@ void	init_images2(t_game *game)
 			&game->wall.e_wall.bits_per_pixel,
 			&game->wall.e_wall.line_length,
 			&game->wall.e_wall.endian);
+	gun_images(game);
 }
 
 void	init_images(t_game *game)
