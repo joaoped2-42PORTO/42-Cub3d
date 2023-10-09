@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:59:46 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/07 16:34:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 10:34:23 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	print_window(t_game *game)
 		while (game->map[i][j])
 		{
 			if (game->map[i][j] == '1')
-				print_minimap(game, i, j, 0x0000000);
+				print_minimap(game, i, j, 0x00336699);
 			if (i == (int)game->player.posy && j == (int)game->player.posx)
 				print_minimap(game, i, j, 0x00FF0000);
 			j++;

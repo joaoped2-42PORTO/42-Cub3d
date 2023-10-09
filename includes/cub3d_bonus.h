@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:33:25 by marvin            #+#    #+#             */
-/*   Updated: 2023/10/07 16:33:45 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 10:30:01 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ bool				loop_map_closed(t_game *game, int i);
 bool				loop_inside_map(t_game *game, int i, int j);
 bool				count_player(t_game *game, int i, int j);
 void				change_max_x(t_game *game, char **str);
+void				put_tabs(t_game *game, int i, int *tab);
 
 /* 			window/game.c			*/
 int					render_next_frame(t_game *game);

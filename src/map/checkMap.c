@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkMap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 14:26:27 by huolivei          #+#    #+#             */
-/*   Updated: 2023/09/22 17:42:15 by huolivei         ###   ########.fr       */
+/*   Updated: 2023/10/09 10:28:07 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,23 @@ void	loop_change_map(t_game *game, int i, char **new_map)
 	int	j;
 	int	tab;
 
-	j = 0;
+	j = -1;
 	tab = 0;
-	while (new_map[i][j])
+	while (new_map[i][++j])
 	{
 		if (new_map[i][j] == '\t')
 		{
-			game->map[i][tab++] = ' ';
-			game->map[i][tab++] = ' ';
-			game->map[i][tab++] = ' ';
-			game->map[i][tab++] = ' ';
+			if (j != 0 && (new_map[i][j - 1] == '1'
+				|| new_map[i][j - 1] == ' '))
+			{
+				game->map[i][tab++] = ' ';
+				game->map[i][tab++] = ' ';
+			}
+			else
+				put_tabs(game, i, &tab);
 		}
 		else
 			game->map[i][tab++] = new_map[i][j];
-		j++;
 	}
 }
 
@@ -46,7 +49,7 @@ bool	inside_map(t_game *game)
 	{
 		j = 0;
 		size = (int)ft_strlen(game->map[i]) - 1;
-		while (j < size)
+		while (j <= size)
 		{
 			if (count_player(game, i, j))
 				return (false);

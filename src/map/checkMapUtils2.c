@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   checkMapUtils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:06 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/03 17:16:56 by marvin           ###   ########.fr       */
+/*   Updated: 2023/10/09 10:27:39 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	put_tabs(t_game *game, int i, int *tab)
+{
+	game->map[i][(*tab)++] = ' ';
+	game->map[i][(*tab)++] = ' ';
+	game->map[i][(*tab)++] = ' ';
+	game->map[i][(*tab)++] = ' ';
+}
 
 bool	loop_map_closed(t_game *game, int i)
 {

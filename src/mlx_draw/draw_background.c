@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_background.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 10:31:21 by joaoped2          #+#    #+#             */
-/*   Updated: 2023/10/06 15:49:28 by neddy            ###   ########.fr       */
+/*   Updated: 2023/10/09 09:43:52 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	print_background(t_game *game)
 		{
 			if (SCREENWIDTH / 2 > y)
 				paint_on_screen_by_pixel
-					(&game->background, x, y, game->f_color);
+					(&game->background, x, y, game->c_color);
 			else
 				paint_on_screen_by_pixel
-					(&game->background, x, y, game->c_color);
+					(&game->background, x, y, game->f_color);
 			x++;
 		}
 		y++;

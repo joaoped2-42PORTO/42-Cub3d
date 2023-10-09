@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   checkMapUtils2_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neddy <neddy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: joaoped2 <joaoped2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 17:31:06 by huolivei          #+#    #+#             */
-/*   Updated: 2023/10/07 16:29:48 by neddy            ###   ########.fr       */
+/*   Updated: 2023/10/09 10:29:46 by joaoped2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
+
+void	put_tabs(t_game *game, int i, int *tab)
+{
+	game->map[i][(*tab)++] = ' ';
+	game->map[i][(*tab)++] = ' ';
+	game->map[i][(*tab)++] = ' ';
+	game->map[i][(*tab)++] = ' ';
+}
 
 bool	loop_map_closed(t_game *game, int i)
 {
