@@ -2,7 +2,7 @@ NO ./images/oldNO.xpm
 SO ./images/oldSO.xpm
 WE ./images/oldWE.xpm
 
-F 0,0,30
+F	0,0,30
 C 20,200,200
 EA ./images/oldEA.xpm
 

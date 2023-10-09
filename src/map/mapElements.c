@@ -17,7 +17,7 @@ bool	check_elements_w(t_game *game)
 	char	**split;
 
 	split = ft_split(game->w_texture, ' ');
-	if (see_matrix_size(split) > 2)
+	if (see_matrix_size(split) > 2 || see_matrix_size(split) < 2)
 	{
 		free_matrix(split);
 		return (false);

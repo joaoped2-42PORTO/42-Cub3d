@@ -17,7 +17,7 @@ bool	check_elements_s(t_game *game)
 	char	**split;
 
 	split = ft_split(game->s_texture, ' ');
-	if (see_matrix_size(split) > 2)
+	if (see_matrix_size(split) > 2 || see_matrix_size(split) < 2)
 	{
 		free_matrix(split);
 		return (false);
@@ -37,7 +37,7 @@ bool	check_elements_e(t_game *game)
 	char	**split;
 
 	split = ft_split(game->e_texture, ' ');
-	if (see_matrix_size(split) > 2)
+	if (see_matrix_size(split) > 2 || see_matrix_size(split) < 2)
 	{
 		free_matrix(split);
 		return (false);
@@ -57,7 +57,7 @@ bool	check_elements_n(t_game *game)
 	char	**split;
 
 	split = ft_split(game->n_texture, ' ');
-	if (see_matrix_size(split) > 2)
+	if (see_matrix_size(split) > 2 || see_matrix_size(split) < 2)
 	{
 		free_matrix(split);
 		return (false);
@@ -77,7 +77,7 @@ bool	check_elements_f(t_game *game)
 	char	**split;
 
 	split = ft_split(game->floor_texture, ' ');
-	if (see_matrix_size(split) > 2)
+	if (see_matrix_size(split) > 2 || see_matrix_size(split) < 2)
 	{
 		free_matrix(split);
 		return (false);
@@ -99,7 +99,7 @@ bool	check_elements_c(t_game *game)
 	char	**split;
 
 	split = ft_split(game->ceeling_texture, ' ');
-	if (see_matrix_size(split) > 2)
+	if (see_matrix_size(split) > 2 || see_matrix_size(split) < 2)
 	{
 		free_matrix(split);
 		return (false);
