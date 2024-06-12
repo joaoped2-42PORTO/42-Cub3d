@@ -132,7 +132,7 @@ The main objectives of this project are:
 │   │   ├── camera_mov.c
 │   │   ├── mlx_hooks.c
 │   │   └── player_mov.c
-|   ├── map/
+│   ├── map/
 │   │   ├── checkMap.c
 │   │   ├── checkMapUtils.c
 │   │   ├── checkMapUtils2.c
@@ -140,7 +140,7 @@ The main objectives of this project are:
 │   │   ├── mapCheck.c
 │   │   ├── mapElemtens.c
 │   │   └── textureUtils.c
-|   ├── mlx_draw/
+│   ├── mlx_draw/
 │   │   ├── draw.c
 │   │   ├── draw_background.c
 │   │   └── mlx_utils.c
@@ -161,7 +161,7 @@ The main objectives of this project are:
 │   │   ├── camera_mov_bonus.c
 │   │   ├── mlx_hooks_bonus.c
 │   │   └── player_mov_bonus.c
-|   ├── map/
+│   ├── map/
 │   │   ├── checkMap_bonus.c
 │   │   ├── checkMapUtils2_bonus.c
 │   │   ├── checkMapUtils_bonus.c
@@ -169,7 +169,7 @@ The main objectives of this project are:
 │   │   ├── mapCheck_bonus.c
 │   │   ├── mapElemtens_bonus.c
 │   │   └── textureUtils_bonus.c
-|   ├── mlx_draw/
+│   ├── mlx_draw/
 │   │   ├── draw_background_bonus.c
 │   │   ├── draw_bonus.c
 │   │   ├── mlx_utils_bonus.c
