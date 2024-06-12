@@ -237,6 +237,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 
 ## Acknowledgments
+- To my partner who helped me a lot throughout the challanges of this project.
 - 42 School
 - Wolfenstein 3D
 - Raycasting Tutorial
