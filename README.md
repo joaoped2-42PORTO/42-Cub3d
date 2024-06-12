@@ -186,12 +186,12 @@ To install and run Cub3D, follow these steps:
 1. **Clone the Repository**:
 
 ```sh
-git clone https://github.com/yourusername/cub3d.git
+git clone https://github.com/joaoped2-42PORTO/42-Cub3d.git
 ```
 2. **Navigate to the project directory**:
 
 ```sh
-cd cub3d
+cd 42-Cub3d
 ```
 
 3. **Compile the Project**:
