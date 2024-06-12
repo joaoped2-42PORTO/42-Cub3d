@@ -111,12 +111,12 @@ The main objectives of this project are:
 ├── maps/
 │   ├── invalid/
 │   │   ├── Imap.cub
-|   |   ├── map..ecub
-|   |   ├── map.cube
+│   │   ├── map..ecub
+│   │   ├── map.cube
 │   ├── valid/
-|   |   ├── big.cub
-|   |   ├── map.cub
-|   |   ├── rectac.cub
+│   │   ├── big.cub
+│   │   ├── map.cub
+│   │   ├── rectac.cub
 |   |   └── small.cub
 ├── src/
 │   ├── cleaner.c
