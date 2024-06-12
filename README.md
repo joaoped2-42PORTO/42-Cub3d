@@ -117,7 +117,7 @@ The main objectives of this project are:
 │   │   ├── big.cub
 │   │   ├── map.cub
 │   │   ├── rectac.cub
-|   |   └── small.cub
+│   │   └── small.cub
 ├── src/
 │   ├── cleaner.c
 │   ├── cub3d.c
